@@ -1,252 +1,214 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="theme-color" content="#000000"/>
-<title>FitMeal Elite 12 Semaines</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Mon Programme Sèche 🌿</title>
 
 <style>
-:root{
-  --bg:#f2f2f7;
-  --card:#ffffff;
-  --text:#111;
-  --accent:#111;
-  --green:#30D158;
-  --red:#ff3b30;
+/* TON CSS ORIGINAL INCHANGÉ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+:root {
+  --g1: #1B4332;
+  --g2: #2D6A4F;
+  --g3: #40916C;
+  --g4: #74C69D;
+  --gp: #D8F3DC;
+  --gf: #F0FFF4;
+  --cream: #FAFAF8;
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --r: 12px;
+  --sh: 0 2px 20px rgba(27,67,50,0.08);
 }
-
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#000;
-    --card:#1c1c1e;
-    --text:#fff;
-    --accent:#fff;
-  }
-}
-
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  padding:20px;
-}
-
-h1{
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-.card{
-  background:var(--card);
-  padding:18px;
-  border-radius:20px;
-  margin-bottom:16px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.08);
-}
-
-input{
-  width:100%;
-  padding:12px;
-  border-radius:12px;
-  border:1px solid #ccc;
-  margin-top:8px;
-  font-size:16px;
-}
-
-button{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  font-size:16px;
-  font-weight:600;
-  background:var(--accent);
-  color:var(--bg);
-  margin-top:10px;
-}
-
-.macro-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.macro-card{
-  background:var(--card);
-  padding:12px;
-  border-radius:14px;
-  text-align:center;
-  font-weight:600;
-}
-
-.progress{
-  height:10px;
-  background:#ddd;
-  border-radius:10px;
-  overflow:hidden;
-  margin-top:10px;
-}
-
-.progress-bar{
-  height:100%;
-  width:0%;
-  background:var(--green);
-  transition:0.4s;
-}
-
-.small{
-  font-size:14px;
-  opacity:0.7;
-}
-
-canvas{
-  width:100%;
-  max-width:100%;
-  margin-top:20px;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;padding-bottom:90px;}
+/* (CSS raccourci ici pour lisibilité — garde le tien complet si besoin) */
 </style>
 </head>
+
 <body>
 
-<h1>🔥 FitMeal Elite 12 Semaines</h1>
+<!-- TON HTML RESTE IDENTIQUE -->
+<!-- (Je ne le réécris pas ici pour ne pas exploser la taille, garde ton HTML actuel tel quel) -->
 
-<div class="card">
-  <label>Poids actuel (kg)</label>
-  <input type="number" id="weightInput" placeholder="Ex: 68">
-  <button onclick="updatePlan()">Mettre à jour le plan</button>
-</div>
-
-<div class="card">
-  <div class="macro-grid">
-    <div class="macro-card">Calories<br><span id="calories">-</span></div>
-    <div class="macro-card">Protéines<br><span id="protein">-</span></div>
-    <div class="macro-card">Glucides<br><span id="carbs">-</span></div>
-    <div class="macro-card">Lipides<br><span id="fats">-</span></div>
-  </div>
-</div>
-
-<div class="card">
-  <div>Progression vers objectif calorique</div>
-  <div class="progress">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-  <div class="small" id="projection"></div>
-</div>
-
-<div class="card">
-  <canvas id="weightChart"></canvas>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
 <script>
-//══════════════════════════════════
-// CONFIGURATION 12 SEMAINES
-//══════════════════════════════════
+/* ============================= */
+/* NOUVELLES AMÉLIORATIONS      */
+/* ============================= */
 
-const targetLossKg = 5; // Objectif -5kg
-const weeklyLossKg = 0.7; // Perte estimée/semaine
-const weeks = 12;
+const OBJECTIVE_WEIGHT = 62; // ← Modifie ici ton objectif
 
-let weightHistory = JSON.parse(localStorage.getItem("weightHistory")) || [];
+let chartWeight = null;
+let chartChecks = null;
 
-function estimateMaintenance(weight){
-  return Math.round(weight * 22 * 1.5);
+/* ============================= */
+/* AUTO SAVE POIDS              */
+/* ============================= */
+
+function enableAutoSave() {
+  const input = document.getElementById('weight-input');
+  if (!input) return;
+
+  let timeout;
+  input.addEventListener('input', () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      saveToday();
+      toast('✔ Auto-sauvegardé');
+    }, 1000);
+  });
 }
 
-function calculateCut(weight){
-  let maintenance = estimateMaintenance(weight);
-  
-  // Ajustement si stagnation
-  if(weightHistory.length>=2){
-    const last = weightHistory[weightHistory.length-1];
-    const prev = weightHistory[weightHistory.length-2];
-    if(last.weight >= prev.weight){ 
-      maintenance -= 150; 
-    }
+/* ============================= */
+/* MOYENNE MOBILE               */
+/* ============================= */
+
+function movingAverage(data, period = 7) {
+  return data.map((_, i, arr) => {
+    const start = Math.max(0, i - (period - 1));
+    const subset = arr.slice(start, i + 1);
+    return (subset.reduce((a,b)=>a+b,0)/subset.length).toFixed(2);
+  });
+}
+
+/* ============================= */
+/* SCORE + STREAK               */
+/* ============================= */
+
+function calculateWeeklyStats() {
+  const days = getAllDays();
+  const last7 = days.slice(-7);
+
+  let avgScore = 0;
+  if (last7.length > 0) {
+    avgScore = Math.round(
+      last7.reduce((acc, d) => {
+        if (!d.checks) return acc;
+        return acc + (d.checks.filter(Boolean).length / 5) * 100;
+      }, 0) / last7.length
+    );
   }
-  return maintenance - 650;
+
+  let streak = 0;
+  const reversed = [...days].reverse();
+
+  for (let d of reversed) {
+    if (!d.checks) break;
+    if (d.checks.filter(Boolean).length >= 4) streak++;
+    else break;
+  }
+
+  return { avgScore, streak };
 }
 
-function updatePlan(){
-  const weight = parseFloat(document.getElementById("weightInput").value);
-  if(!weight) return;
+/* ============================= */
+/* COURBE AMÉLIORÉE             */
+/* ============================= */
 
-  const calories = calculateCut(weight);
-  const protein = Math.round(weight * 2.2);
-  const fats = Math.round(weight * 0.8);
-  const carbs = Math.round((calories - (protein*4 + fats*9)) / 4);
+function renderCourbe() {
 
-  document.getElementById("calories").innerText = calories + " kcal";
-  document.getElementById("protein").innerText = protein + " g";
-  document.getElementById("carbs").innerText = carbs + " g";
-  document.getElementById("fats").innerText = fats + " g";
+  const days = getAllDays().filter(d => d.weight);
 
-  // Stocker le poids actuel
-  const today = new Date().toISOString().split('T')[0];
-  weightHistory.push({date: today, weight: weight});
-  if(weightHistory.length>84) weightHistory.shift(); // max 12 semaines * 7 jours
-  localStorage.setItem("weightHistory", JSON.stringify(weightHistory));
+  const statsRow = document.getElementById('stats-row');
+  statsRow.innerHTML = `
+    <div class="stat-card"><div class="val" id="stat-start">—</div><div class="lbl">Départ</div></div>
+    <div class="stat-card"><div class="val good" id="stat-current">—</div><div class="lbl">Actuel</div></div>
+    <div class="stat-card"><div class="val accent" id="stat-diff">—</div><div class="lbl">Perdu</div></div>
+  `;
 
-  updateProjection(weight, calories);
-  updateChart();
-}
+  if (days.length > 0) {
+    const first = days[0].weight;
+    const last = days[days.length-1].weight;
+    const diff = (last - first).toFixed(1);
 
-function updateProjection(weight, calories){
-  const weeksToTarget = Math.ceil((weight - (weight - targetLossKg)) / weeklyLossKg);
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + (weeksToTarget * 7));
+    document.getElementById('stat-start').textContent = first + ' kg';
+    document.getElementById('stat-current').textContent = last + ' kg';
 
-  document.getElementById("projection").innerText =
-    "🎯 -0,7kg/semaine estimé | Objectif -5kg atteint vers : " +
-    targetDate.toLocaleDateString();
+    const diffEl = document.getElementById('stat-diff');
+    diffEl.textContent = (diff <= 0 ? '' : '+') + diff + ' kg';
+    diffEl.className = 'val ' + (diff <= 0 ? 'good' : 'accent');
+  }
 
-  const progressPercent = Math.min(100, (weightHistory[weightHistory.length-1].weight - (weight - targetLossKg)) / targetLossKg * 100);
-  document.getElementById("progressBar").style.width = progressPercent + "%";
-}
+  const weekly = calculateWeeklyStats();
 
-//══════════════════════════════════
-// GRAPHIQUE POIDS 12 SEMAINES
-//══════════════════════════════════
+  statsRow.innerHTML += `
+    <div class="stat-card"><div class="val">${weekly.avgScore}%</div><div class="lbl">Score 7j</div></div>
+    <div class="stat-card"><div class="val">🔥 ${weekly.streak}</div><div class="lbl">Streak</div></div>
+  `;
 
-const ctx = document.getElementById('weightChart').getContext('2d');
-const chart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: weightHistory.map(w=>w.date),
-    datasets: [{
-      label: 'Poids (kg)',
-      data: weightHistory.map(w=>w.weight),
-      borderColor: '#30D158',
-      backgroundColor: 'rgba(48, 209, 88, 0.2)',
-      tension: 0.3,
-      fill:true
-    }]
-  },
-  options:{
-    responsive:true,
-    plugins:{
-      legend:{display:true},
+  const container = document.getElementById('chart-container');
+
+  if (days.length < 2) {
+    container.innerHTML = '<div class="no-data"><span class="icon">📊</span>Il faut au moins 2 pesées.</div>';
+    return;
+  }
+
+  container.innerHTML = '<canvas id="weight-chart"></canvas>';
+  if (chartWeight) chartWeight.destroy();
+
+  const labels = days.map(d => {
+    const dt = new Date(d.date);
+    return dt.toLocaleDateString('fr-FR',{day:'numeric',month:'short'});
+  });
+
+  const weights = days.map(d => d.weight);
+  const avg7 = movingAverage(weights);
+
+  const ctx = document.getElementById('weight-chart').getContext('2d');
+
+  chartWeight = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label:'Poids',
+          data:weights,
+          borderColor:'#40916C',
+          backgroundColor:'rgba(64,145,108,0.1)',
+          tension:0.3,
+          fill:true
+        },
+        {
+          label:'Moyenne 7j',
+          data:avg7,
+          borderColor:'#1B4332',
+          borderDash:[6,4],
+          tension:0.4,
+          fill:false
+        },
+        {
+          label:'Objectif',
+          data:new Array(weights.length).fill(OBJECTIVE_WEIGHT),
+          borderColor:'#e76f51',
+          borderWidth:2,
+          pointRadius:0
+        }
+      ]
     },
-    scales:{
-      y:{beginAtZero:false}
+    options:{
+      responsive:true,
+      plugins:{ legend:{ display:true }},
+      scales:{
+        y:{ ticks:{ callback:v=>v+' kg' }}
+      }
     }
-  }
-});
-
-function updateChart(){
-  chart.data.labels = weightHistory.map(w=>w.date);
-  chart.data.datasets[0].data = weightHistory.map(w=>w.weight);
-  chart.update();
+  });
 }
 
-// Charger ancien poids
-if(weightHistory.length>0){
-  document.getElementById("weightInput").value = weightHistory[weightHistory.length-1].weight;
-  updatePlan();
-}
+/* ============================= */
+/* INIT MODIFIÉ                 */
+/* ============================= */
+
+const originalRenderToday = renderToday;
+renderToday = function() {
+  originalRenderToday();
+  enableAutoSave();
+};
+
 </script>
 
 </body>
