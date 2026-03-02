@@ -1,0 +1,874 @@
+in<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Mon Programme Sèche 🌿</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+
+  :root {
+    --g1: #1B4332;
+    --g2: #2D6A4F;
+    --g3: #40916C;
+    --g4: #74C69D;
+    --gp: #D8F3DC;
+    --gf: #F0FFF4;
+    --cream: #FAFAF8;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --r: 12px;
+    --sh: 0 2px 20px rgba(27,67,50,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 90px;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: linear-gradient(135deg, var(--g1), var(--g3));
+    padding: 20px 20px 0;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .topbar-inner {
+    max-width: 700px; margin: 0 auto;
+  }
+  .app-title {
+    font-family: 'DM Serif Display', serif;
+    color: white; font-size: 1.3rem;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+  }
+  .app-title span { font-size: 1.4rem; }
+
+  /* ── TABS ── */
+  .tabs {
+    display: flex; gap: 4px;
+    overflow-x: auto; padding-bottom: 0;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex-shrink: 0;
+    padding: 9px 16px;
+    border-radius: 10px 10px 0 0;
+    font-size: 0.8rem; font-weight: 600;
+    cursor: pointer;
+    color: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.1);
+    border: none;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tab.active {
+    background: var(--cream);
+    color: var(--g1);
+  }
+  .tab:hover:not(.active) { background: rgba(255,255,255,0.2); color: white; }
+
+  /* ── CONTENT ── */
+  .content {
+    max-width: 700px; margin: 0 auto;
+    padding: 24px 16px;
+  }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── CARDS ── */
+  .card {
+    background: white; border-radius: 16px;
+    box-shadow: var(--sh); margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .card-header {
+    background: linear-gradient(90deg, var(--g1), var(--g3));
+    padding: 16px 20px;
+    color: white;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .card-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+  }
+  .sport-pill {
+    background: rgba(255,255,255,0.18);
+    border-radius: 20px; padding: 4px 12px;
+    font-size: 0.75rem; font-weight: 600;
+    white-space: nowrap;
+  }
+  .card-body { padding: 20px; }
+
+  /* ── CHECKIN ── */
+  .weight-row {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--gf); border: 1.5px solid var(--gp);
+    border-radius: 10px; padding: 14px 16px; margin-bottom: 12px;
+  }
+  .weight-row label { font-size: 0.9rem; font-weight: 600; flex: 1; }
+  .weight-input-wrap { display: flex; align-items: baseline; gap: 6px; }
+  .weight-input-wrap input {
+    width: 80px; border: none;
+    border-bottom: 2px solid var(--g4);
+    background: transparent; font-size: 1.1rem;
+    font-family: 'DM Serif Display', serif;
+    color: var(--g1); text-align: center; outline: none; padding: 2px;
+  }
+  .weight-input-wrap input::placeholder { color: var(--gp); }
+  .weight-input-wrap span { font-size: 0.82rem; color: var(--muted); }
+
+  .checks-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  }
+  .check-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 14px; border-radius: 10px;
+    background: var(--gf); border: 1px solid var(--gp);
+    cursor: pointer; transition: all 0.15s; user-select: none;
+  }
+  .check-item:hover { background: #e5f5ec; border-color: var(--g4); }
+  .check-item.checked { background: var(--gp); border-color: var(--g3); }
+  .check-box {
+    width: 22px; height: 22px; border: 2px solid var(--g4);
+    border-radius: 5px; background: white; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s; font-size: 13px; color: white; font-weight: 700;
+  }
+  .check-item.checked .check-box { background: var(--g3); border-color: var(--g3); }
+  .check-label { font-size: 0.84rem; font-weight: 500; }
+
+  .save-btn {
+    width: 100%; margin-top: 14px; padding: 13px;
+    background: var(--g1); color: white; border: none;
+    border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .save-btn:hover { background: var(--g2); }
+  .save-btn:active { transform: scale(0.98); }
+
+  /* ── MEAL TABLE ── */
+  .meal-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin-top: 4px; }
+  .meal-table thead tr { background: var(--gf); }
+  .meal-table th {
+    padding: 9px 10px; text-align: left;
+    font-size: 0.67rem; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--g2); font-weight: 600;
+    border-bottom: 2px solid var(--gp);
+  }
+  .meal-table tbody tr { border-bottom: 1px solid #f0f0ee; }
+  .meal-table tbody tr.total { background: var(--gp); font-weight: 600; }
+  .meal-table tbody tr.total td { color: var(--g1); }
+  .meal-table td { padding: 10px 10px; vertical-align: top; }
+  .meal-table td:first-child { font-weight: 600; color: var(--g3); white-space: nowrap; }
+  .meal-table td.num { text-align: center; color: var(--muted); white-space: nowrap; }
+
+  /* ── CHART PAGE ── */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;
+  }
+  .stat-card {
+    background: white; border-radius: 12px; padding: 16px;
+    text-align: center; box-shadow: var(--sh);
+  }
+  .stat-card .val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; color: var(--g1);
+  }
+  .stat-card .lbl { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  .stat-card .val.good { color: var(--g3); }
+  .stat-card .val.accent { color: #e76f51; }
+
+  canvas { width: 100% !important; border-radius: 10px; }
+  .chart-wrap {
+    background: white; border-radius: 16px; padding: 20px;
+    box-shadow: var(--sh); margin-bottom: 20px;
+  }
+  .chart-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem; color: var(--g1); margin-bottom: 16px;
+  }
+  .no-data {
+    text-align: center; padding: 40px 20px;
+    color: var(--muted); font-size: 0.9rem;
+  }
+  .no-data .icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+
+  /* ── HISTORY ── */
+  .history-list { display: flex; flex-direction: column; gap: 8px; }
+  .history-item {
+    background: white; border-radius: 10px; padding: 14px 16px;
+    box-shadow: var(--sh); display: flex; align-items: center; justify-content: space-between;
+  }
+  .history-item .date { font-size: 0.82rem; color: var(--muted); }
+  .history-item .weight { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--g1); }
+  .history-item .checks { display: flex; gap: 4px; }
+  .history-item .chk { font-size: 0.75rem; }
+  .del-btn {
+    background: none; border: none; cursor: pointer;
+    color: #d1d5db; font-size: 1rem; padding: 4px;
+    transition: color 0.15s;
+  }
+  .del-btn:hover { color: #ef4444; }
+
+  /* ── PROGRAMME PAGE ── */
+  .prog-section { margin-bottom: 24px; }
+  .prog-section h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem; color: var(--g1); margin-bottom: 12px;
+  }
+  .macro-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px;
+  }
+  .macro-card {
+    background: white; border-radius: 10px; padding: 14px 10px;
+    text-align: center; box-shadow: var(--sh);
+  }
+  .macro-card .v { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--g1); }
+  .macro-card .l { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
+
+  .info-box {
+    background: var(--gf); border: 1px solid var(--gp);
+    border-radius: 10px; padding: 14px 16px;
+    font-size: 0.86rem; color: var(--g2); margin-bottom: 16px;
+  }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: white; border-top: 1px solid #e5e7eb;
+    display: flex; padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+    z-index: 200;
+  }
+  .nav-item {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; gap: 3px; padding: 6px 0;
+    cursor: pointer; border: none; background: none;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--muted); transition: color 0.15s;
+  }
+  .nav-item.active { color: var(--g3); }
+  .nav-item .nav-icon { font-size: 1.3rem; }
+  .nav-item .nav-label { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--g1); color: white; border-radius: 30px;
+    padding: 12px 24px; font-size: 0.88rem; font-weight: 500;
+    opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 300;
+    white-space: nowrap;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 400px) {
+    .checks-grid { grid-template-columns: 1fr; }
+    .macro-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="app-title"><span>🌿</span> Mon Programme Sèche</div>
+    <div class="tabs">
+      <button class="tab active" onclick="showPage('today')">Aujourd'hui</button>
+      <button class="tab" onclick="showPage('courbe')">📈 Courbe</button>
+      <button class="tab" onclick="showPage('programme')">🥗 Programme</button>
+      <button class="tab" onclick="showPage('historique')">📋 Historique</button>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- ══ PAGE : AUJOURD'HUI ══ -->
+  <div class="page active" id="page-today">
+    <div id="day-cards"></div>
+  </div>
+
+  <!-- ══ PAGE : COURBE ══ -->
+  <div class="page" id="page-courbe">
+    <div class="stats-row" id="stats-row">
+      <div class="stat-card"><div class="val" id="stat-start">—</div><div class="lbl">Départ</div></div>
+      <div class="stat-card"><div class="val good" id="stat-current">—</div><div class="lbl">Actuel</div></div>
+      <div class="stat-card"><div class="val accent" id="stat-diff">—</div><div class="lbl">Perdu</div></div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">⚖️ Évolution du poids</div>
+      <div id="chart-container"><div class="no-data"><span class="icon">📊</span>Commence à enregistrer ton poids chaque jour pour voir ta courbe apparaître !</div></div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">✅ Adhérence hebdomadaire</div>
+      <div id="chart-checks"><div class="no-data"><span class="icon">✅</span>Coche tes habitudes chaque jour pour voir ton score !</div></div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE : PROGRAMME ══ -->
+  <div class="page" id="page-programme">
+    <div class="prog-section">
+      <h3>📊 Tes objectifs nutritionnels</h3>
+      <div class="macro-grid">
+        <div class="macro-card"><div class="v">1 950</div><div class="l">kcal/jour</div></div>
+        <div class="macro-card"><div class="v">130g</div><div class="l">Protéines</div></div>
+        <div class="macro-card"><div class="v">190g</div><div class="l">Glucides</div></div>
+        <div class="macro-card"><div class="v">65g</div><div class="l">Lipides</div></div>
+      </div>
+      <div class="info-box">💡 Déficit de ~500 kcal/jour · Perte estimée −0,5 kg/semaine · Protéines élevées pour préserver le muscle</div>
+    </div>
+    <div class="prog-section">
+      <h3>📅 Planning sportif</h3>
+      <div id="sport-planning"></div>
+    </div>
+    <div class="prog-section">
+      <h3>💡 Conseils clés</h3>
+      <div id="tips-list"></div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE : HISTORIQUE ══ -->
+  <div class="page" id="page-historique">
+    <div class="chart-wrap">
+      <div class="chart-title">📋 Historique des entrées</div>
+      <div id="history-content"></div>
+    </div>
+    <button class="save-btn" style="background:#ef4444" onclick="clearAll()">🗑️ Effacer toutes les données</button>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button class="nav-item active" onclick="showPage('today')">
+    <span class="nav-icon">📅</span><span class="nav-label">Aujourd'hui</span>
+  </button>
+  <button class="nav-item" onclick="showPage('courbe')">
+    <span class="nav-icon">📈</span><span class="nav-label">Courbe</span>
+  </button>
+  <button class="nav-item" onclick="showPage('programme')">
+    <span class="nav-icon">🥗</span><span class="nav-label">Programme</span>
+  </button>
+  <button class="nav-item" onclick="showPage('historique')">
+    <span class="nav-icon">📋</span><span class="nav-label">Historique</span>
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+// ══════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════
+const DAYS_DATA = [
+  {
+    day: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+    meals: [
+      { name: "Petit-déj", food: "Porridge flocons (60g) cuit dans l'eau + Alpro coco yaourt (100g) en topping + Framboises (80g) + Chia (10g)", kcal: 430, p: "14g", g: "60g", l: "14g" },
+      { name: "Déjeuner", food: "Poulet grillé (150g) + Riz basmati cuit (150g) + Courgette/Poivron rôtis (150g) + Huile d'olive (1 càc)", kcal: 480, p: "40g", g: "54g", l: "9g" },
+      { name: "Collation", food: "Yaourt à la grecque (150g) + Pomme + Amandes (15g)", kcal: 270, p: "13g", g: "28g", l: "12g" },
+      { name: "Dîner", food: "Thon (150g) + Lentilles cuites (100g) + Tomates (150g) + Huile d'olive (1 càc)", kcal: 390, p: "40g", g: "28g", l: "9g" },
+    ],
+    total: { kcal: "~1 570", p: "107g", g: "170g", l: "44g" }
+  },
+  {
+    day: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+    meals: [
+      { name: "Petit-déj", food: "2 œufs brouillés + 2 tranches pain complet + Avocat (1/2)", kcal: 420, p: "18g", g: "32g", l: "22g" },
+      { name: "Déjeuner", food: "Galette de lentilles (2) + Quinoa cuit (120g) + Poêlée de légumes (150g) + Huile d'olive (1 càc)", kcal: 480, p: "22g", g: "66g", l: "12g" },
+      { name: "Collation", food: "Alpro coco yaourt (150g) + Orange + Noix de pécan (15g)", kcal: 220, p: "4g", g: "24g", l: "12g" },
+      { name: "Dîner", food: "Steak haché 5% (150g) + Patate douce rôtie (150g) + Champignons (100g)", kcal: 420, p: "36g", g: "34g", l: "10g" },
+    ],
+    total: { kcal: "~1 540", p: "80g", g: "156g", l: "56g" }
+  },
+  {
+    day: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+    meals: [
+      { name: "Petit-déj", food: "Porridge flocons (60g) cuit dans l'eau + Alpro coco yaourt (80g) en topping + Mangue (100g) + Beurre cacahuète (15g)", kcal: 490, p: "13g", g: "64g", l: "18g" },
+      { name: "Déjeuner", food: "Poulet (150g) + Pâtes complètes cuites (150g) + Tomates + Huile d'olive (1 càc)", kcal: 490, p: "40g", g: "56g", l: "10g" },
+      { name: "Collation", food: "Yaourt à la grecque (150g) + Framboises + Chia (10g)", kcal: 210, p: "14g", g: "18g", l: "6g" },
+      { name: "Dîner", food: "Jambon (120g) + Lentilles cuites (100g) + Chou rouge (100g) + Fromage à tartiner (20g)", kcal: 370, p: "34g", g: "32g", l: "12g" },
+    ],
+    total: { kcal: "~1 550", p: "101g", g: "168g", l: "46g" }
+  },
+  {
+    day: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+    meals: [
+      { name: "Petit-déj", food: "2 œufs + Wrap complet + Chèvre (20g) + Tomate", kcal: 420, p: "20g", g: "36g", l: "18g" },
+      { name: "Déjeuner", food: "Noix de bœuf (150g) + Riz basmati cuit (150g) + Champignons + Poivrons (150g)", kcal: 500, p: "40g", g: "52g", l: "14g" },
+      { name: "Collation", food: "Alpro coco yaourt (150g) + Banane + Amandes (15g)", kcal: 250, p: "5g", g: "34g", l: "10g" },
+      { name: "Dîner", food: "Thon (130g) + Patate douce rôtie (150g) + Endives + Yaourt grec (100g)", kcal: 420, p: "38g", g: "44g", l: "6g" },
+    ],
+    total: { kcal: "~1 550", p: "103g", g: "160g", l: "47g" }
+  },
+  {
+    day: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+    meals: [
+      { name: "Petit-déj", food: "Porridge flocons (60g) cuit dans l'eau + Alpro coco yaourt (80g) en topping + Pomme râpée + Noix de pécan (15g)", kcal: 460, p: "12g", g: "60g", l: "16g" },
+      { name: "Déjeuner", food: "Galette de lentilles (2) + Quinoa cuit (120g) + Chou rouge (150g) + Feta (20g)", kcal: 480, p: "24g", g: "58g", l: "16g" },
+      { name: "Collation", food: "Alpro coco yaourt (150g) + Mangue (100g) + Sirop d'érable (5ml)", kcal: 200, p: "4g", g: "32g", l: "5g" },
+      { name: "Dîner", food: "Poulet (150g) + Lentilles cuites (100g) + Poireaux (150g) + Huile d'olive (1 càc)", kcal: 420, p: "44g", g: "30g", l: "10g" },
+    ],
+    total: { kcal: "~1 570", p: "92g", g: "176g", l: "46g" }
+  },
+  {
+    day: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+    meals: [
+      { name: "Petit-déj", food: "3 œufs brouillés + Avocat (1/2) + 1 tranche pain complet + Framboises", kcal: 460, p: "20g", g: "22g", l: "28g" },
+      { name: "Déjeuner", food: "Poulet (180g) + Pâtes complètes cuites (150g) + Poireaux (150g) + Chèvre (20g)", kcal: 540, p: "48g", g: "54g", l: "16g" },
+      { name: "Collation", food: "Alpro coco yaourt (150g) + Orange + Chia (10g)", kcal: 190, p: "4g", g: "22g", l: "6g" },
+      { name: "Dîner", food: "Steak haché 5% (150g) + Patate douce rôtie (150g) + Poivrons grillés (100g)", kcal: 430, p: "36g", g: "36g", l: "12g" },
+    ],
+    total: { kcal: "~1 660", p: "111g", g: "132g", l: "70g" }
+  },
+  {
+    day: "Dimanche", emoji: "🧘", sport: "Pilates",
+    meals: [
+      { name: "Petit-déj", food: "Porridge flocons (70g) cuit dans l'eau + Alpro coco yaourt (80g) en topping + Banane + Beurre cacahuète (20g)", kcal: 530, p: "14g", g: "70g", l: "18g" },
+      { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal · idéal : riz + protéine)", kcal: 600, p: "30g", g: "60g", l: "20g" },
+      { name: "Collation", food: "Yaourt à la grecque + Framboises + Amandes", kcal: 220, p: "14g", g: "14g", l: "10g" },
+      { name: "Dîner", food: "Thon (130g) + Lentilles cuites (100g) + Quinoa cuit (80g) + Tomates", kcal: 450, p: "40g", g: "48g", l: "8g" },
+    ],
+    total: { kcal: "~1 790", p: "98g", g: "190g", l: "56g" }
+  }
+];
+
+const TIPS = [
+  { icon: "🥩", title: "Protéines en priorité", text: "Vise 130g/jour. Poulet (31g/100g), thon (28g/100g), œufs (13g), yaourt grec (10g)." },
+  { icon: "💧", title: "Hydratation", text: "2L minimum par jour. Commence chaque repas par un grand verre d'eau." },
+  { icon: "⏰", title: "Timing des glucides", text: "Flocons, riz, pâtes le matin et autour des séances. Protéines + légumes le soir." },
+  { icon: "🥥", title: "Alpro coco yaourt", text: "Utilisé en topping sur le porridge ou en collation. Moins protéiné que le grec — compensé dans les autres repas." },
+  { icon: "🍠", title: "Lentilles & Patate douce", text: "Index glycémique bas, riches en fibres. Parfaits le soir pour rassasier sans pic d'insuline." },
+  { icon: "🎉", title: "Dimanche libre", text: "Intégré au programme ! Si tu craques un autre jour, reprends simplement le lendemain." },
+];
+
+// ══════════════════════════════════════════
+// STORAGE
+// ══════════════════════════════════════════
+function getKey(date) { return 'day_' + date; }
+function todayStr() { return new Date().toISOString().split('T')[0]; }
+function dayName() { return ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'][new Date().getDay()]; }
+function dayIndex() { return (new Date().getDay() + 6) % 7; } // 0=lundi
+
+function loadDay(date) {
+  try { return JSON.parse(localStorage.getItem(getKey(date))) || {}; }
+  catch { return {}; }
+}
+function saveDay(date, data) {
+  localStorage.setItem(getKey(date), JSON.stringify(data));
+}
+function getAllDays() {
+  const days = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k.startsWith('day_')) {
+      try {
+        const d = JSON.parse(localStorage.getItem(k));
+        days.push({ date: k.replace('day_', ''), ...d });
+      } catch {}
+    }
+  }
+  return days.sort((a, b) => a.date.localeCompare(b.date));
+}
+function deleteDay(date) { localStorage.removeItem(getKey(date)); }
+function clearAll() {
+  if (!confirm('Effacer toutes les données ? Cette action est irréversible.')) return;
+  const keys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    if (localStorage.key(i).startsWith('day_')) keys.push(localStorage.key(i));
+  }
+  keys.forEach(k => localStorage.removeItem(k));
+  toast('Données effacées');
+  renderHistorique();
+  renderCourbe();
+}
+
+// ══════════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════════
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  const tabs = document.querySelectorAll('.tab');
+  const navs = document.querySelectorAll('.nav-item');
+  const order = ['today','courbe','programme','historique'];
+  const idx = order.indexOf(name);
+  if (tabs[idx]) tabs[idx].classList.add('active');
+  if (navs[idx]) navs[idx].classList.add('active');
+  if (name === 'courbe') renderCourbe();
+  if (name === 'historique') renderHistorique();
+}
+
+// ══════════════════════════════════════════
+// TODAY PAGE
+// ══════════════════════════════════════════
+function renderToday() {
+  const today = todayStr();
+  const dIdx = dayIndex();
+  const dayData = DAYS_DATA[dIdx];
+  const saved = loadDay(today);
+
+  const container = document.getElementById('day-cards');
+  container.innerHTML = '';
+
+  // Date banner
+  const banner = document.createElement('div');
+  banner.style.cssText = 'background:linear-gradient(135deg,var(--g1),var(--g3));border-radius:14px;padding:18px 20px;margin-bottom:18px;color:white;';
+  const dateStr = new Date().toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' });
+  banner.innerHTML = `<div style="font-size:0.75rem;opacity:0.75;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Aujourd'hui</div>
+    <div style="font-family:'DM Serif Display',serif;font-size:1.3rem">${dateStr.charAt(0).toUpperCase()+dateStr.slice(1)}</div>
+    <div style="margin-top:8px;background:rgba(255,255,255,0.15);border-radius:20px;display:inline-block;padding:4px 14px;font-size:0.78rem;font-weight:600">${dayData.emoji} ${dayData.sport}</div>`;
+  container.appendChild(banner);
+
+  // Check-in card
+  const checkin = document.createElement('div');
+  checkin.className = 'card';
+  checkin.innerHTML = `
+    <div class="card-header"><h2>✅ Check-in du jour</h2></div>
+    <div class="card-body">
+      <div class="weight-row">
+        <span style="font-size:1.2rem">⚖️</span>
+        <label>Poids du jour</label>
+        <div class="weight-input-wrap">
+          <input type="number" step="0.1" id="weight-input" placeholder="00.0" value="${saved.weight||''}">
+          <span>kg</span>
+        </div>
+      </div>
+      <div class="checks-grid">
+        ${['💧 2L d\'eau','👟 10 000 pas',`${dayData.emoji} ${dayData.sport}`,'🍷 Sans alcool','🚭 Sans clope élec'].map((label,i) => `
+          <div class="check-item ${saved.checks && saved.checks[i] ? 'checked':''}" onclick="toggleCheck(this,${i})">
+            <div class="check-box">${saved.checks && saved.checks[i] ? '✓':''}</div>
+            <span class="check-label">${label}</span>
+          </div>`).join('')}
+      </div>
+      <button class="save-btn" onclick="saveToday()">💾 Sauvegarder</button>
+    </div>`;
+  container.appendChild(checkin);
+
+  // Meals card
+  const meals = document.createElement('div');
+  meals.className = 'card';
+  meals.innerHTML = `
+    <div class="card-header"><h2>🥗 Repas du jour</h2><span class="sport-pill">${dayData.total.kcal} kcal</span></div>
+    <div class="card-body" style="padding:0">
+      <div style="overflow-x:auto">
+        <table class="meal-table">
+          <thead><tr><th>Repas</th><th>Aliments</th><th>Kcal</th><th>Prot</th><th>Gluc</th><th>Lip</th></tr></thead>
+          <tbody>
+            ${dayData.meals.map(m => `<tr>
+              <td>${m.name}</td><td>${m.food}</td>
+              <td class="num">${m.kcal}</td><td class="num">${m.p}</td><td class="num">${m.g}</td><td class="num">${m.l}</td>
+            </tr>`).join('')}
+            <tr class="total">
+              <td>Total</td><td></td>
+              <td class="num">${dayData.total.kcal}</td><td class="num">${dayData.total.p}</td><td class="num">${dayData.total.g}</td><td class="num">${dayData.total.l}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+  container.appendChild(meals);
+}
+
+let currentChecks = [false,false,false,false,false];
+function toggleCheck(el, idx) {
+  el.classList.toggle('checked');
+  const box = el.querySelector('.check-box');
+  const isChecked = el.classList.contains('checked');
+  box.textContent = isChecked ? '✓' : '';
+  currentChecks[idx] = isChecked;
+}
+
+function saveToday() {
+  const today = todayStr();
+  const saved = loadDay(today);
+  const weightVal = document.getElementById('weight-input').value;
+  const checks = Array.from(document.querySelectorAll('.check-item')).map(el => el.classList.contains('checked'));
+  saveDay(today, { weight: weightVal ? parseFloat(weightVal) : null, checks, date: today });
+  toast('✅ Sauvegardé !');
+}
+
+// ══════════════════════════════════════════
+// COURBE PAGE
+// ══════════════════════════════════════════
+let chartWeight = null;
+let chartChecks = null;
+
+function renderCourbe() {
+  const days = getAllDays().filter(d => d.weight);
+
+  // Stats
+  if (days.length > 0) {
+    const first = days[0].weight;
+    const last = days[days.length-1].weight;
+    const diff = (last - first).toFixed(1);
+    document.getElementById('stat-start').textContent = first + ' kg';
+    document.getElementById('stat-current').textContent = last + ' kg';
+    const diffEl = document.getElementById('stat-diff');
+    diffEl.textContent = (diff <= 0 ? '' : '+') + diff + ' kg';
+    diffEl.className = 'val ' + (diff <= 0 ? 'good' : 'accent');
+  } else {
+    document.getElementById('stat-start').textContent = '—';
+    document.getElementById('stat-current').textContent = '—';
+    document.getElementById('stat-diff').textContent = '—';
+  }
+
+  const container = document.getElementById('chart-container');
+  if (days.length < 2) {
+    container.innerHTML = '<div class="no-data"><span class="icon">📊</span>Il faut au moins 2 pesées pour voir la courbe. Continue !</div>';
+  } else {
+    container.innerHTML = '<canvas id="weight-chart"></canvas>';
+    if (chartWeight) chartWeight.destroy();
+    const labels = days.map(d => {
+      const dt = new Date(d.date);
+      return dt.toLocaleDateString('fr-FR', { day:'numeric', month:'short' });
+    });
+    const weights = days.map(d => d.weight);
+    const ctx = document.getElementById('weight-chart').getContext('2d');
+    chartWeight = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Poids (kg)',
+          data: weights,
+          borderColor: '#40916C',
+          backgroundColor: 'rgba(64,145,108,0.1)',
+          borderWidth: 2.5,
+          pointBackgroundColor: '#1B4332',
+          pointRadius: 5,
+          tension: 0.3,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: {
+            beginAtZero: false,
+            grid: { color: '#f0f0ee' },
+            ticks: { callback: v => v + ' kg', font: { family: 'DM Sans' } }
+          },
+          x: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } }
+        }
+      }
+    });
+  }
+
+  // Checks adherence
+  const allDays = getAllDays();
+  const checksContainer = document.getElementById('chart-checks');
+  if (allDays.length < 2) {
+    checksContainer.innerHTML = '<div class="no-data"><span class="icon">✅</span>Coche tes habitudes chaque jour pour voir ton score !</div>';
+  } else {
+    checksContainer.innerHTML = '<canvas id="checks-chart"></canvas>';
+    if (chartChecks) chartChecks.destroy();
+    const checkLabels = allDays.slice(-14).map(d => {
+      const dt = new Date(d.date);
+      return dt.toLocaleDateString('fr-FR', { day:'numeric', month:'short' });
+    });
+    const checkScores = allDays.slice(-14).map(d => {
+      if (!d.checks) return 0;
+      return Math.round((d.checks.filter(Boolean).length / 5) * 100);
+    });
+    const ctx2 = document.getElementById('checks-chart').getContext('2d');
+    chartChecks = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: checkLabels,
+        datasets: [{
+          label: 'Score (%)',
+          data: checkScores,
+          backgroundColor: checkScores.map(s => s >= 80 ? 'rgba(64,145,108,0.8)' : s >= 60 ? 'rgba(116,198,157,0.8)' : 'rgba(216,243,220,0.9)'),
+          borderRadius: 6,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { max: 100, grid: { color: '#f0f0ee' }, ticks: { callback: v => v + '%', font: { family: 'DM Sans' } } },
+          x: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } }
+        }
+      }
+    });
+  }
+}
+
+// ══════════════════════════════════════════
+// PROGRAMME PAGE
+// ══════════════════════════════════════════
+function renderProgramme() {
+  // Sport planning
+  const sp = document.getElementById('sport-planning');
+  sp.innerHTML = DAYS_DATA.map(d => `
+    <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:white;border-radius:10px;margin-bottom:8px;box-shadow:var(--sh)">
+      <span style="font-size:1.1rem">${d.emoji}</span>
+      <span style="font-weight:600;color:var(--g1);width:80px">${d.day}</span>
+      <span style="color:var(--muted);font-size:0.87rem">${d.sport}</span>
+    </div>`).join('');
+
+  // Tips
+  const tl = document.getElementById('tips-list');
+  tl.innerHTML = TIPS.map(t => `
+    <div style="background:white;border-radius:12px;padding:16px 18px;margin-bottom:10px;box-shadow:var(--sh)">
+      <div style="font-weight:600;font-size:0.9rem;color:var(--g1);margin-bottom:5px">${t.icon} ${t.title}</div>
+      <div style="font-size:0.83rem;color:var(--muted)">${t.text}</div>
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════════
+// HISTORIQUE PAGE
+// ══════════════════════════════════════════
+function renderHistorique() {
+  const days = getAllDays().reverse();
+  const content = document.getElementById('history-content');
+  if (days.length === 0) {
+    content.innerHTML = '<div class="no-data"><span class="icon">📋</span>Aucune entrée pour le moment.</div>';
+    return;
+  }
+  const checkLabels = ['💧','👟','🏋️','🍷','🚭'];
+  content.innerHTML = '<div class="history-list">' + days.map(d => {
+    const dt = new Date(d.date);
+    const dateStr = dt.toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' });
+    const score = d.checks ? d.checks.filter(Boolean).length : 0;
+    return `<div class="history-item">
+      <div>
+        <div class="date">${dateStr.charAt(0).toUpperCase()+dateStr.slice(1)}</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px">
+          <div class="weight">${d.weight ? d.weight + ' kg' : '—'}</div>
+          <div style="font-size:0.78rem;color:var(--muted)">${score}/5 habitudes</div>
+        </div>
+        ${d.checks ? '<div class="checks">' + d.checks.map((c,i) => `<span class="chk" style="opacity:${c?1:0.25}">${checkLabels[i]}</span>`).join('') + '</div>' : ''}
+      </div>
+      <button class="del-btn" onclick="removeDay('${d.date}')">🗑️</button>
+    </div>`;
+  }).join('') + '</div>';
+}
+
+function removeDay(date) {
+  deleteDay(date);
+  renderHistorique();
+  renderCourbe();
+  toast('Entrée supprimée');
+}
+
+// ══════════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════════
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+// ══════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════
+renderToday();
+renderProgramme();
+</script>
+
+<!-- ====== AMÉLIORATIONS AJOUTÉES ====== -->
+<script>
+// 🎯 Objectif personnalisable
+const OBJECTIVE_WEIGHT = 62;
+
+// 📉 Moyenne mobile
+function movingAverage(data, period = 7) {
+  return data.map((_, i, arr) => {
+    const start = Math.max(0, i - (period - 1));
+    const subset = arr.slice(start, i + 1);
+    return subset.reduce((a,b)=>a+b,0)/subset.length;
+  });
+}
+
+// 🔥 Streak simple basé sur jours enregistrés
+function calculateStreak(days){
+  let streak = 0;
+  const reversed = [...days].reverse();
+  for(let d of reversed){
+    if(d.weight) streak++;
+    else break;
+  }
+  return streak;
+}
+
+// 📈 Patch automatique de la courbe si Chart existe déjà
+document.addEventListener("DOMContentLoaded", function(){
+
+  if(typeof renderCourbe === "function"){
+
+    const originalRender = renderCourbe;
+
+    renderCourbe = function(){
+
+      originalRender();
+
+      if(typeof getAllDays !== "function") return;
+
+      const days = getAllDays().filter(d => d.weight);
+      if(days.length < 2) return;
+
+      const weights = days.map(d=>d.weight);
+      const avg7 = movingAverage(weights);
+
+      if(window.chartWeight){
+        window.chartWeight.data.datasets.push({
+          label:"Moyenne 7j",
+          data:avg7,
+          borderDash:[6,4],
+          fill:false
+        });
+
+        window.chartWeight.data.datasets.push({
+          label:"Objectif",
+          data:new Array(weights.length).fill(OBJECTIVE_WEIGHT),
+          fill:false
+        });
+
+        window.chartWeight.update();
+      }
+
+      const statsRow = document.getElementById("stats-row");
+      if(statsRow){
+        const streak = calculateStreak(days);
+        const div = document.createElement("div");
+        div.className="stat-card";
+        div.innerHTML="<div class='val'>🔥 "+streak+"</div><div class='lbl'>Streak</div>";
+        statsRow.appendChild(div);
+      }
+    }
+  }
+
+  // ⚡ Auto-save poids
+  const weightInput = document.getElementById("weight-input");
+  if(weightInput){
+    let timeout;
+    weightInput.addEventListener("input", function(){
+      clearTimeout(timeout);
+      timeout = setTimeout(()=>{
+        if(typeof saveToday === "function") saveToday();
+      },1000);
+    });
+  }
+
+});
+</script>
+
+</body>
+</html>
