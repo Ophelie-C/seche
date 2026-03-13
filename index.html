@@ -1,4 +1,4 @@
-in<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -31,15 +31,12 @@ in<!DOCTYPE html>
     padding-bottom: 90px;
   }
 
-  /* ── TOP BAR ── */
   .topbar {
     background: linear-gradient(135deg, var(--g1), var(--g3));
     padding: 20px 20px 0;
     position: sticky; top: 0; z-index: 100;
   }
-  .topbar-inner {
-    max-width: 700px; margin: 0 auto;
-  }
+  .topbar-inner { max-width: 700px; margin: 0 auto; }
   .app-title {
     font-family: 'DM Serif Display', serif;
     color: white; font-size: 1.3rem;
@@ -48,7 +45,6 @@ in<!DOCTYPE html>
   }
   .app-title span { font-size: 1.4rem; }
 
-  /* ── TABS ── */
   .tabs {
     display: flex; gap: 4px;
     overflow-x: auto; padding-bottom: 0;
@@ -67,22 +63,13 @@ in<!DOCTYPE html>
     transition: all 0.2s;
     font-family: 'DM Sans', sans-serif;
   }
-  .tab.active {
-    background: var(--cream);
-    color: var(--g1);
-  }
+  .tab.active { background: var(--cream); color: var(--g1); }
   .tab:hover:not(.active) { background: rgba(255,255,255,0.2); color: white; }
 
-  /* ── CONTENT ── */
-  .content {
-    max-width: 700px; margin: 0 auto;
-    padding: 24px 16px;
-  }
-
+  .content { max-width: 700px; margin: 0 auto; padding: 24px 16px; }
   .page { display: none; }
   .page.active { display: block; }
 
-  /* ── CARDS ── */
   .card {
     background: white; border-radius: 16px;
     box-shadow: var(--sh); margin-bottom: 20px;
@@ -90,23 +77,17 @@ in<!DOCTYPE html>
   }
   .card-header {
     background: linear-gradient(90deg, var(--g1), var(--g3));
-    padding: 16px 20px;
-    color: white;
+    padding: 16px 20px; color: white;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .card-header h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
-  }
+  .card-header h2 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; }
   .sport-pill {
     background: rgba(255,255,255,0.18);
     border-radius: 20px; padding: 4px 12px;
-    font-size: 0.75rem; font-weight: 600;
-    white-space: nowrap;
+    font-size: 0.75rem; font-weight: 600; white-space: nowrap;
   }
   .card-body { padding: 20px; }
 
-  /* ── CHECKIN ── */
   .weight-row {
     display: flex; align-items: center; gap: 12px;
     background: var(--gf); border: 1.5px solid var(--gp);
@@ -124,9 +105,7 @@ in<!DOCTYPE html>
   .weight-input-wrap input::placeholder { color: var(--gp); }
   .weight-input-wrap span { font-size: 0.82rem; color: var(--muted); }
 
-  .checks-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-  }
+  .checks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .check-item {
     display: flex; align-items: center; gap: 10px;
     padding: 11px 14px; border-radius: 10px;
@@ -154,7 +133,6 @@ in<!DOCTYPE html>
   .save-btn:hover { background: var(--g2); }
   .save-btn:active { transform: scale(0.98); }
 
-  /* ── MEAL TABLE ── */
   .meal-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin-top: 4px; }
   .meal-table thead tr { background: var(--gf); }
   .meal-table th {
@@ -170,38 +148,19 @@ in<!DOCTYPE html>
   .meal-table td:first-child { font-weight: 600; color: var(--g3); white-space: nowrap; }
   .meal-table td.num { text-align: center; color: var(--muted); white-space: nowrap; }
 
-  /* ── CHART PAGE ── */
-  .stats-row {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;
-  }
-  .stat-card {
-    background: white; border-radius: 12px; padding: 16px;
-    text-align: center; box-shadow: var(--sh);
-  }
-  .stat-card .val {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.5rem; color: var(--g1);
-  }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+  .stat-card { background: white; border-radius: 12px; padding: 16px; text-align: center; box-shadow: var(--sh); }
+  .stat-card .val { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--g1); }
   .stat-card .lbl { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
   .stat-card .val.good { color: var(--g3); }
   .stat-card .val.accent { color: #e76f51; }
 
   canvas { width: 100% !important; border-radius: 10px; }
-  .chart-wrap {
-    background: white; border-radius: 16px; padding: 20px;
-    box-shadow: var(--sh); margin-bottom: 20px;
-  }
-  .chart-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem; color: var(--g1); margin-bottom: 16px;
-  }
-  .no-data {
-    text-align: center; padding: 40px 20px;
-    color: var(--muted); font-size: 0.9rem;
-  }
+  .chart-wrap { background: white; border-radius: 16px; padding: 20px; box-shadow: var(--sh); margin-bottom: 20px; }
+  .chart-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--g1); margin-bottom: 16px; }
+  .no-data { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 0.9rem; }
   .no-data .icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
 
-  /* ── HISTORY ── */
   .history-list { display: flex; flex-direction: column; gap: 8px; }
   .history-item {
     background: white; border-radius: 10px; padding: 14px 16px;
@@ -211,36 +170,51 @@ in<!DOCTYPE html>
   .history-item .weight { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--g1); }
   .history-item .checks { display: flex; gap: 4px; }
   .history-item .chk { font-size: 0.75rem; }
-  .del-btn {
-    background: none; border: none; cursor: pointer;
-    color: #d1d5db; font-size: 1rem; padding: 4px;
-    transition: color 0.15s;
-  }
+  .del-btn { background: none; border: none; cursor: pointer; color: #d1d5db; font-size: 1rem; padding: 4px; transition: color 0.15s; }
   .del-btn:hover { color: #ef4444; }
 
-  /* ── PROGRAMME PAGE ── */
+  /* Programme page */
   .prog-section { margin-bottom: 24px; }
-  .prog-section h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem; color: var(--g1); margin-bottom: 12px;
-  }
-  .macro-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px;
-  }
-  .macro-card {
-    background: white; border-radius: 10px; padding: 14px 10px;
-    text-align: center; box-shadow: var(--sh);
-  }
+  .prog-section h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--g1); margin-bottom: 12px; }
+  .macro-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+  .macro-card { background: white; border-radius: 10px; padding: 14px 10px; text-align: center; box-shadow: var(--sh); }
   .macro-card .v { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--g1); }
   .macro-card .l { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
+  .info-box { background: var(--gf); border: 1px solid var(--gp); border-radius: 10px; padding: 14px 16px; font-size: 0.86rem; color: var(--g2); margin-bottom: 16px; }
 
-  .info-box {
-    background: var(--gf); border: 1px solid var(--gp);
-    border-radius: 10px; padding: 14px 16px;
-    font-size: 0.86rem; color: var(--g2); margin-bottom: 16px;
+  /* Phase selector */
+  .phase-selector { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .phase-btn {
+    padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+    cursor: pointer; border: 2px solid var(--gp); background: white; color: var(--g2);
+    font-family: 'DM Sans', sans-serif; transition: all 0.2s;
   }
+  .phase-btn.active { background: var(--g1); color: white; border-color: var(--g1); }
+  .phase-btn:hover:not(.active) { border-color: var(--g3); color: var(--g1); }
 
-  /* ── BOTTOM NAV ── */
+  .phase-info { background: var(--gf); border: 1px solid var(--gp); border-radius: 12px; padding: 14px 16px; margin-bottom: 20px; }
+  .phase-info .phase-title { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--g1); margin-bottom: 6px; }
+  .phase-info .phase-desc { font-size: 0.83rem; color: var(--g2); line-height: 1.6; }
+
+  .week-selector { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; scrollbar-width: none; }
+  .week-selector::-webkit-scrollbar { display: none; }
+  .week-btn {
+    flex-shrink: 0; padding: 7px 14px; border-radius: 8px; font-size: 0.78rem; font-weight: 600;
+    cursor: pointer; border: 1.5px solid var(--gp); background: white; color: var(--g2);
+    font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+  }
+  .week-btn.active { background: var(--g3); color: white; border-color: var(--g3); }
+
+  .day-selector { display: flex; gap: 6px; margin-bottom: 16px; overflow-x: auto; scrollbar-width: none; }
+  .day-selector::-webkit-scrollbar { display: none; }
+  .day-btn {
+    flex-shrink: 0; padding: 8px 14px; border-radius: 8px; font-size: 0.78rem; font-weight: 600;
+    cursor: pointer; border: 1.5px solid var(--gp); background: white; color: var(--g2);
+    font-family: 'DM Sans', sans-serif; transition: all 0.2s; text-align: center; min-width: 60px;
+  }
+  .day-btn.active { background: var(--g2); color: white; border-color: var(--g2); }
+
+  /* Bottom nav */
   .bottom-nav {
     position: fixed; bottom: 0; left: 0; right: 0;
     background: white; border-top: 1px solid #e5e7eb;
@@ -258,7 +232,6 @@ in<!DOCTYPE html>
   .nav-item .nav-icon { font-size: 1.3rem; }
   .nav-item .nav-label { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
-  /* ── TOAST ── */
   .toast {
     position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px);
     background: var(--g1); color: white; border-radius: 30px;
@@ -277,7 +250,6 @@ in<!DOCTYPE html>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-inner">
     <div class="app-title"><span>🌿</span> Mon Programme Sèche</div>
@@ -292,12 +264,12 @@ in<!DOCTYPE html>
 
 <div class="content">
 
-  <!-- ══ PAGE : AUJOURD'HUI ══ -->
+  <!-- PAGE : AUJOURD'HUI -->
   <div class="page active" id="page-today">
     <div id="day-cards"></div>
   </div>
 
-  <!-- ══ PAGE : COURBE ══ -->
+  <!-- PAGE : COURBE -->
   <div class="page" id="page-courbe">
     <div class="stats-row" id="stats-row">
       <div class="stat-card"><div class="val" id="stat-start">—</div><div class="lbl">Départ</div></div>
@@ -306,7 +278,7 @@ in<!DOCTYPE html>
     </div>
     <div class="chart-wrap">
       <div class="chart-title">⚖️ Évolution du poids</div>
-      <div id="chart-container"><div class="no-data"><span class="icon">📊</span>Commence à enregistrer ton poids chaque jour pour voir ta courbe apparaître !</div></div>
+      <div id="chart-container"><div class="no-data"><span class="icon">📊</span>Commence à enregistrer ton poids chaque jour pour voir ta courbe !</div></div>
     </div>
     <div class="chart-wrap">
       <div class="chart-title">✅ Adhérence hebdomadaire</div>
@@ -314,21 +286,24 @@ in<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- ══ PAGE : PROGRAMME ══ -->
+  <!-- PAGE : PROGRAMME -->
   <div class="page" id="page-programme">
     <div class="prog-section">
-      <h3>📊 Tes objectifs nutritionnels</h3>
-      <div class="macro-grid">
-        <div class="macro-card"><div class="v">1 950</div><div class="l">kcal/jour</div></div>
-        <div class="macro-card"><div class="v">130g</div><div class="l">Protéines</div></div>
-        <div class="macro-card"><div class="v">190g</div><div class="l">Glucides</div></div>
-        <div class="macro-card"><div class="v">65g</div><div class="l">Lipides</div></div>
-      </div>
-      <div class="info-box">💡 Déficit de ~500 kcal/jour · Perte estimée −0,5 kg/semaine · Protéines élevées pour préserver le muscle</div>
+      <h3>📊 Objectifs nutritionnels</h3>
+      <div id="macro-display"></div>
+      <div id="macro-info"></div>
     </div>
     <div class="prog-section">
       <h3>📅 Planning sportif</h3>
       <div id="sport-planning"></div>
+    </div>
+    <div class="prog-section">
+      <h3>🗓️ Menu 3 mois — Navigation</h3>
+      <div class="phase-selector" id="phase-selector"></div>
+      <div class="phase-info" id="phase-info-box"></div>
+      <div class="week-selector" id="week-selector"></div>
+      <div class="day-selector" id="day-selector"></div>
+      <div id="menu-display"></div>
     </div>
     <div class="prog-section">
       <h3>💡 Conseils clés</h3>
@@ -336,7 +311,7 @@ in<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- ══ PAGE : HISTORIQUE ══ -->
+  <!-- PAGE : HISTORIQUE -->
   <div class="page" id="page-historique">
     <div class="chart-wrap">
       <div class="chart-title">📋 Historique des entrées</div>
@@ -347,7 +322,6 @@ in<!DOCTYPE html>
 
 </div>
 
-<!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <button class="nav-item active" onclick="showPage('today')">
     <span class="nav-icon">📅</span><span class="nav-label">Aujourd'hui</span>
@@ -367,89 +341,992 @@ in<!DOCTYPE html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
+
 // ══════════════════════════════════════════
-// DATA
+// PLANNING SPORT (inchangé)
 // ══════════════════════════════════════════
-const DAYS_DATA = [
+const SPORT_DAYS = [
+  { day: "Lundi",    emoji: "🏋️", sport: "Séance TSE" },
+  { day: "Mardi",    emoji: "🧘", sport: "Pilates + Muscu" },
+  { day: "Mercredi", emoji: "🏋️", sport: "Séance TSE" },
+  { day: "Jeudi",    emoji: "🧘", sport: "Pilates + Muscu" },
+  { day: "Vendredi", emoji: "🏋️", sport: "Séance TSE" },
+  { day: "Samedi",   emoji: "🏃", sport: "Running + Pilates" },
+  { day: "Dimanche", emoji: "🧘", sport: "Pilates" },
+];
+
+// ══════════════════════════════════════════
+// PROGRAMME 3 MOIS — 3 PHASES × 2 SEMAINES × 7 JOURS
+// Contraintes : pas brocolis, pas chou de Bruxelles, pas crevettes, pas tofu
+// ══════════════════════════════════════════
+const PHASES = [
   {
-    day: "Lundi", emoji: "🏋️", sport: "Séance TSE",
-    meals: [
-      { name: "Petit-déj", food: "Porridge flocons (60g) cuit dans l'eau + Alpro coco yaourt (100g) en topping + Framboises (80g) + Chia (10g)", kcal: 430, p: "14g", g: "60g", l: "14g" },
-      { name: "Déjeuner", food: "Poulet grillé (150g) + Riz basmati cuit (150g) + Courgette/Poivron rôtis (150g) + Huile d'olive (1 càc)", kcal: 480, p: "40g", g: "54g", l: "9g" },
-      { name: "Collation", food: "Yaourt à la grecque (150g) + Pomme + Amandes (15g)", kcal: 270, p: "13g", g: "28g", l: "12g" },
-      { name: "Dîner", food: "Thon (150g) + Lentilles cuites (100g) + Tomates (150g) + Huile d'olive (1 càc)", kcal: 390, p: "40g", g: "28g", l: "9g" },
-    ],
-    total: { kcal: "~1 570", p: "107g", g: "170g", l: "44g" }
+    id: 0,
+    label: "Phase 1 — Mise en route",
+    months: "Mois 1",
+    kcal: "1 600–1 650",
+    p: "120–125g", g: "150–160g", l: "55–58g",
+    desc: "Installer les bonnes habitudes, créer un déficit modéré. Glucides maintenus pour l'énergie. 4 repas structurés par jour.",
+    macro: { kcal: "1 625", p: "122g", g: "155g", l: "56g" },
+    info: "Déficit ~400 kcal/jour · Perte estimée −0,4 kg/semaine · Protéines hautes pour préserver le muscle",
+    weeks: [
+      {
+        label: "Semaine 1",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Flocons d'avoine 40g + Fruits rouges 100g + Amandes 10g", kcal: 395, p: "28g", g: "50g", l: "9g" },
+              { name: "Déjeuner", food: "Blanc de poulet 130g + Riz complet cuit 120g + Courgettes 150g + Huile d'olive 10g", kcal: 460, p: "40g", g: "46g", l: "13g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Pomme 150g", kcal: 200, p: "18g", g: "26g", l: "2g" },
+              { name: "Dîner", food: "Saumon 140g + Patate douce 200g + Salade verte 100g + Huile d'olive 5g", kcal: 570, p: "35g", g: "48g", l: "22g" },
+            ],
+            total: { kcal: "~1 625", p: "121g", g: "170g", l: "46g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 0% 250g + Banane 100g + Flocons d'avoine 30g + Graines de chia 10g", kcal: 375, p: "24g", g: "55g", l: "6g" },
+              { name: "Déjeuner", food: "Dinde 130g + Quinoa cuit 120g + Carottes 150g + Huile d'olive 5g", kcal: 455, p: "38g", g: "48g", l: "10g" },
+              { name: "Collation", food: "Skyr 150g + Amandes 10g", kcal: 195, p: "18g", g: "12g", l: "8g" },
+              { name: "Dîner", food: "Cabillaud 150g + Pommes de terre 220g + Haricots verts 150g + Huile d'olive 5g", kcal: 480, p: "35g", g: "60g", l: "9g" },
+            ],
+            total: { kcal: "~1 505", p: "115g", g: "175g", l: "33g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Omelette 2 œufs + 2 blancs + Pain complet 40g + Tomates 100g", kcal: 340, p: "26g", g: "32g", l: "11g" },
+              { name: "Déjeuner", food: "Steak haché 5% 130g + Pommes de terre 200g + Courgettes 150g", kcal: 490, p: "34g", g: "54g", l: "12g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Pomme 150g", kcal: 200, p: "18g", g: "26g", l: "2g" },
+              { name: "Dîner", food: "Poulet 140g + Riz complet cuit 110g + Poivrons 150g + Huile d'olive 5g", kcal: 460, p: "40g", g: "42g", l: "11g" },
+            ],
+            total: { kcal: "~1 490", p: "118g", g: "154g", l: "36g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Granola 35g + Fruits rouges 100g", kcal: 380, p: "22g", g: "54g", l: "8g" },
+              { name: "Déjeuner", food: "Thon 120g + Pâtes complètes cuites 130g + Courgettes 150g + Huile d'olive 5g", kcal: 450, p: "34g", g: "52g", l: "9g" },
+              { name: "Collation", food: "Fromage blanc 200g + Amandes 10g", kcal: 235, p: "22g", g: "12g", l: "9g" },
+              { name: "Dîner", food: "Saumon 130g + Riz cuit 100g + Salade 100g + Avocat 40g", kcal: 530, p: "33g", g: "36g", l: "26g" },
+            ],
+            total: { kcal: "~1 595", p: "111g", g: "154g", l: "52g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie : lait 200ml + Skyr 150g + Flocons d'avoine 30g + Banane 80g", kcal: 380, p: "22g", g: "58g", l: "5g" },
+              { name: "Déjeuner", food: "Poulet 130g + Patate douce 200g + Courgettes 150g + Huile d'olive 5g", kcal: 490, p: "38g", g: "54g", l: "11g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Chocolat noir 10g", kcal: 220, p: "18g", g: "20g", l: "7g" },
+              { name: "Dîner", food: "Cabillaud 150g + Quinoa cuit 120g + Carottes 150g", kcal: 420, p: "40g", g: "46g", l: "5g" },
+            ],
+            total: { kcal: "~1 510", p: "118g", g: "178g", l: "28g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 250g + Pomme 150g + Flocons d'avoine 30g", kcal: 355, p: "24g", g: "52g", l: "3g" },
+              { name: "Déjeuner", food: "Steak 5% 130g + Riz complet cuit 110g + Haricots verts 150g", kcal: 440, p: "36g", g: "44g", l: "9g" },
+              { name: "Collation", food: "Skyr 150g + Amandes 10g", kcal: 195, p: "18g", g: "12g", l: "8g" },
+              { name: "Dîner", food: "Poulet 140g + Pommes de terre 200g + Salade 100g + Huile d'olive 5g", kcal: 490, p: "40g", g: "50g", l: "12g" },
+            ],
+            total: { kcal: "~1 480", p: "118g", g: "158g", l: "32g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Flocons d'avoine 40g + Fruits frais 100g", kcal: 380, p: "24g", g: "56g", l: "3g" },
+              { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal · idéal : protéine + légumes + féculents)", kcal: 600, p: "30g", g: "60g", l: "20g" },
+              { name: "Collation", food: "Yaourt protéiné 150g", kcal: 130, p: "16g", g: "10g", l: "2g" },
+              { name: "Dîner", food: "Poisson blanc 150g + Patate douce 200g + Salade", kcal: 450, p: "36g", g: "50g", l: "6g" },
+            ],
+            total: { kcal: "~1 560", p: "106g", g: "176g", l: "31g" }
+          },
+        ]
+      },
+      {
+        label: "Semaine 2",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Banane 100g + Flocons d'avoine 30g", kcal: 360, p: "22g", g: "58g", l: "2g" },
+              { name: "Déjeuner", food: "Dinde 130g + Riz cuit 120g + Légumes variés 150g", kcal: 445, p: "38g", g: "48g", l: "7g" },
+              { name: "Collation", food: "Fromage blanc 200g + Amandes 10g", kcal: 235, p: "22g", g: "12g", l: "9g" },
+              { name: "Dîner", food: "Saumon 140g + Pommes de terre 200g + Salade verte 100g", kcal: 530, p: "36g", g: "46g", l: "18g" },
+            ],
+            total: { kcal: "~1 570", p: "118g", g: "164g", l: "36g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Omelette 2 œufs + 2 blancs + Pain complet 40g", kcal: 310, p: "26g", g: "26g", l: "10g" },
+              { name: "Déjeuner", food: "Poulet 130g + Quinoa cuit 120g + Légumes 150g", kcal: 460, p: "40g", g: "48g", l: "8g" },
+              { name: "Collation", food: "Skyr 150g + Pomme 150g", kcal: 195, p: "18g", g: "26g", l: "1g" },
+              { name: "Dîner", food: "Cabillaud 150g + Riz cuit 110g + Légumes 150g", kcal: 440, p: "38g", g: "46g", l: "5g" },
+            ],
+            total: { kcal: "~1 405", p: "122g", g: "146g", l: "24g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 250g + Fruits rouges 100g + Granola 30g", kcal: 355, p: "24g", g: "50g", l: "5g" },
+              { name: "Déjeuner", food: "Steak 5% 130g + Patate douce 200g + Légumes 150g", kcal: 510, p: "36g", g: "56g", l: "12g" },
+              { name: "Collation", food: "Yaourt protéiné 150g", kcal: 130, p: "16g", g: "10g", l: "2g" },
+              { name: "Dîner", food: "Poulet 140g + Pâtes complètes cuites 120g + Légumes 150g", kcal: 510, p: "42g", g: "52g", l: "10g" },
+            ],
+            total: { kcal: "~1 505", p: "118g", g: "168g", l: "29g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie : Skyr 150g + Lait 200ml + Avoine 30g + Fruits 100g", kcal: 365, p: "22g", g: "52g", l: "5g" },
+              { name: "Déjeuner", food: "Thon 120g + Riz cuit 110g + Légumes 150g", kcal: 400, p: "34g", g: "44g", l: "4g" },
+              { name: "Collation", food: "Skyr 150g + Chocolat noir 10g", kcal: 195, p: "16g", g: "16g", l: "5g" },
+              { name: "Dîner", food: "Saumon 130g + Quinoa cuit 120g + Légumes 150g", kcal: 510, p: "36g", g: "44g", l: "18g" },
+            ],
+            total: { kcal: "~1 470", p: "108g", g: "156g", l: "32g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Avoine 40g + Fruits rouges 100g", kcal: 380, p: "24g", g: "54g", l: "3g" },
+              { name: "Déjeuner", food: "Poulet 130g + Pommes de terre 200g + Légumes 150g", kcal: 490, p: "38g", g: "52g", l: "10g" },
+              { name: "Collation", food: "Fromage blanc 200g + Amandes 10g", kcal: 235, p: "22g", g: "12g", l: "9g" },
+              { name: "Dîner", food: "Cabillaud 150g + Riz cuit 100g + Légumes 150g", kcal: 420, p: "38g", g: "40g", l: "5g" },
+            ],
+            total: { kcal: "~1 525", p: "122g", g: "158g", l: "27g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Omelette 3 œufs + Pain complet 40g", kcal: 380, p: "28g", g: "26g", l: "16g" },
+              { name: "Déjeuner", food: "Dinde 130g + Quinoa cuit 120g + Légumes 150g", kcal: 455, p: "38g", g: "48g", l: "8g" },
+              { name: "Collation", food: "Yaourt protéiné 150g", kcal: 130, p: "16g", g: "10g", l: "2g" },
+              { name: "Dîner", food: "Poulet 140g + Patate douce 200g + Salade verte", kcal: 490, p: "40g", g: "52g", l: "10g" },
+            ],
+            total: { kcal: "~1 455", p: "122g", g: "136g", l: "36g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 250g + Fruits rouges 100g + Flocons d'avoine 30g", kcal: 355, p: "24g", g: "50g", l: "3g" },
+              { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal)", kcal: 600, p: "28g", g: "60g", l: "22g" },
+              { name: "Collation", food: "Skyr 150g + Amandes 10g", kcal: 195, p: "18g", g: "12g", l: "8g" },
+              { name: "Dîner", food: "Saumon 130g + Riz cuit 100g + Légumes vapeur 150g", kcal: 490, p: "34g", g: "38g", l: "17g" },
+            ],
+            total: { kcal: "~1 640", p: "104g", g: "160g", l: "50g" }
+          },
+        ]
+      },
+      {
+        label: "Semaine 3",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Yaourt grec 150g + Flocons d'avoine 45g + Myrtilles 100g + Noix 10g", kcal: 400, p: "18g", g: "54g", l: "12g" },
+              { name: "Déjeuner", food: "Dinde 140g + Patate douce 180g + Épinards sautés 120g + Huile d'olive 8g", kcal: 480, p: "40g", g: "48g", l: "12g" },
+              { name: "Collation", food: "Skyr 150g + Poire 120g", kcal: 185, p: "18g", g: "22g", l: "1g" },
+              { name: "Dîner", food: "Thon 140g + Lentilles cuites 120g + Poivrons 150g + Huile d'olive 5g", kcal: 440, p: "40g", g: "36g", l: "11g" },
+            ],
+            total: { kcal: "~1 505", p: "116g", g: "160g", l: "36g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie : Fromage blanc 200g + Banane 100g + Avoine 30g + Miel 5g", kcal: 380, p: "24g", g: "58g", l: "4g" },
+              { name: "Déjeuner", food: "Poulet grillé 130g + Riz basmati 120g + Champignons 150g + Huile d'olive 5g", kcal: 455, p: "38g", g: "46g", l: "10g" },
+              { name: "Collation", food: "Cottage cheese 150g + Amandes 10g", kcal: 210, p: "18g", g: "8g", l: "12g" },
+              { name: "Dîner", food: "Cabillaud 150g + Quinoa cuit 110g + Carottes 150g + Huile d'olive 5g", kcal: 430, p: "38g", g: "44g", l: "8g" },
+            ],
+            total: { kcal: "~1 475", p: "118g", g: "156g", l: "34g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "2 œufs brouillés + Avocat 50g + Pain complet 40g + Tomates 100g", kcal: 410, p: "18g", g: "32g", l: "22g" },
+              { name: "Déjeuner", food: "Saumon 140g + Pâtes complètes cuites 120g + Courgettes 150g + Huile d'olive 5g", kcal: 510, p: "38g", g: "50g", l: "18g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Fruits rouges 80g", kcal: 165, p: "18g", g: "14g", l: "2g" },
+              { name: "Dîner", food: "Poulet 140g + Haricots verts 200g + Patate douce 150g + Huile d'olive 5g", kcal: 450, p: "40g", g: "44g", l: "11g" },
+            ],
+            total: { kcal: "~1 535", p: "114g", g: "140g", l: "53g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Porridge : Avoine 45g + Lait écrémé 200ml + Kiwi 100g + Chia 8g", kcal: 365, p: "14g", g: "56g", l: "6g" },
+              { name: "Déjeuner", food: "Steak haché 5% 130g + Riz complet 110g + Salade verte 100g + Huile d'olive 5g", kcal: 460, p: "36g", g: "44g", l: "13g" },
+              { name: "Collation", food: "Fromage blanc 200g + Noix 10g", kcal: 230, p: "22g", g: "10g", l: "11g" },
+              { name: "Dîner", food: "Dinde 130g + Lentilles cuites 100g + Carottes 150g + Huile d'olive 5g", kcal: 420, p: "38g", g: "34g", l: "10g" },
+            ],
+            total: { kcal: "~1 475", p: "110g", g: "144g", l: "40g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Granola 35g + Mangue 100g", kcal: 385, p: "22g", g: "56g", l: "6g" },
+              { name: "Déjeuner", food: "Poulet 130g + Quinoa cuit 120g + Épinards 100g + Huile d'olive 8g", kcal: 460, p: "38g", g: "44g", l: "14g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Pomme 130g", kcal: 195, p: "18g", g: "24g", l: "2g" },
+              { name: "Dîner", food: "Lieu noir 150g + Riz cuit 110g + Poivrons grillés 150g + Huile d'olive 5g", kcal: 430, p: "38g", g: "44g", l: "9g" },
+            ],
+            total: { kcal: "~1 470", p: "116g", g: "168g", l: "31g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "3 œufs + Épinards sautés 80g + Pain complet 35g + Orange 120g", kcal: 420, p: "26g", g: "36g", l: "16g" },
+              { name: "Déjeuner", food: "Saumon 150g + Patate douce 200g + Salade 100g + Huile d'olive 8g", kcal: 560, p: "38g", g: "50g", l: "22g" },
+              { name: "Collation", food: "Skyr 150g + Amandes 10g", kcal: 195, p: "18g", g: "12g", l: "8g" },
+              { name: "Dîner", food: "Poulet 140g + Haricots verts 150g + Champignons 100g + Huile d'olive 5g", kcal: 380, p: "40g", g: "14g", l: "14g" },
+            ],
+            total: { kcal: "~1 555", p: "122g", g: "112g", l: "60g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Pancakes avoine : Avoine 50g + 2 œufs + Lait 100ml + Fruits rouges 100g", kcal: 420, p: "22g", g: "56g", l: "10g" },
+              { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal)", kcal: 600, p: "28g", g: "60g", l: "22g" },
+              { name: "Collation", food: "Fromage blanc 200g + Kiwi 100g", kcal: 185, p: "22g", g: "18g", l: "1g" },
+              { name: "Dîner", food: "Thon 130g + Quinoa cuit 100g + Légumes vapeur 150g", kcal: 400, p: "36g", g: "38g", l: "8g" },
+            ],
+            total: { kcal: "~1 605", p: "108g", g: "172g", l: "41g" }
+          },
+        ]
+      },
+      {
+        label: "Semaine 4",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 250g + Flocons d'avoine 40g + Banane 90g + Graines lin 8g", kcal: 395, p: "26g", g: "58g", l: "5g" },
+              { name: "Déjeuner", food: "Blanc de poulet 140g + Riz basmati 120g + Haricots verts 150g + Huile d'olive 8g", kcal: 475, p: "42g", g: "48g", l: "13g" },
+              { name: "Collation", food: "Yaourt grec 150g + Framboises 80g + Amandes 10g", kcal: 230, p: "14g", g: "16g", l: "12g" },
+              { name: "Dîner", food: "Saumon 140g + Patate douce 180g + Courgettes 150g + Huile d'olive 5g", kcal: 530, p: "36g", g: "44g", l: "21g" },
+            ],
+            total: { kcal: "~1 630", p: "118g", g: "166g", l: "51g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Avoine 40g + Pomme râpée 120g + Cannelle", kcal: 390, p: "24g", g: "58g", l: "3g" },
+              { name: "Déjeuner", food: "Thon 130g + Pâtes complètes cuites 120g + Tomates 150g + Huile d'olive 5g", kcal: 450, p: "36g", g: "50g", l: "9g" },
+              { name: "Collation", food: "Cottage cheese 150g + Noix 12g", kcal: 215, p: "18g", g: "8g", l: "13g" },
+              { name: "Dîner", food: "Cabillaud 150g + Lentilles cuites 100g + Épinards 100g + Huile d'olive 5g", kcal: 400, p: "40g", g: "30g", l: "9g" },
+            ],
+            total: { kcal: "~1 455", p: "118g", g: "146g", l: "34g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Omelette 3 œufs + Champignons 80g + Pain complet 35g", kcal: 360, p: "26g", g: "26g", l: "16g" },
+              { name: "Déjeuner", food: "Dinde 130g + Riz complet 120g + Poivrons 150g + Huile d'olive 8g", kcal: 460, p: "38g", g: "48g", l: "12g" },
+              { name: "Collation", food: "Fromage blanc 200g + Myrtilles 80g", kcal: 190, p: "22g", g: "16g", l: "1g" },
+              { name: "Dîner", food: "Steak haché 5% 130g + Quinoa cuit 110g + Carottes 150g + Huile d'olive 5g", kcal: 490, p: "36g", g: "46g", l: "14g" },
+            ],
+            total: { kcal: "~1 500", p: "122g", g: "136g", l: "43g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie : Lait 200ml + Skyr 150g + Avoine 30g + Fraises 100g", kcal: 370, p: "22g", g: "54g", l: "4g" },
+              { name: "Déjeuner", food: "Poulet 130g + Pommes de terre 200g + Salade 100g + Huile d'olive 8g", kcal: 480, p: "38g", g: "50g", l: "14g" },
+              { name: "Collation", food: "Skyr 150g + Chocolat noir 10g", kcal: 195, p: "16g", g: "16g", l: "6g" },
+              { name: "Dîner", food: "Saumon 130g + Lentilles cuites 100g + Courgettes 150g + Huile d'olive 5g", kcal: 470, p: "36g", g: "28g", l: "21g" },
+            ],
+            total: { kcal: "~1 515", p: "112g", g: "148g", l: "45g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Porridge : Avoine 50g + Lait d'amande 200ml + Kiwi 100g + Amandes 10g", kcal: 390, p: "12g", g: "58g", l: "12g" },
+              { name: "Déjeuner", food: "Cabillaud 150g + Riz basmati 110g + Haricots verts 150g + Huile d'olive 8g", kcal: 440, p: "38g", g: "44g", l: "10g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Orange 130g", kcal: 185, p: "18g", g: "20g", l: "2g" },
+              { name: "Dîner", food: "Dinde 140g + Patate douce 180g + Épinards 100g + Huile d'olive 5g", kcal: 460, p: "38g", g: "44g", l: "11g" },
+            ],
+            total: { kcal: "~1 475", p: "106g", g: "166g", l: "35g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Bowl : Yaourt grec 150g + Granola 30g + Fruits rouges 100g + Chia 8g", kcal: 380, p: "16g", g: "54g", l: "9g" },
+              { name: "Déjeuner", food: "Poulet rôti 150g + Riz complet 120g + Champignons 150g + Huile d'olive 5g", kcal: 490, p: "42g", g: "48g", l: "11g" },
+              { name: "Collation", food: "Fromage blanc 200g + Poire 120g", kcal: 200, p: "22g", g: "22g", l: "1g" },
+              { name: "Dîner", food: "Thon 130g + Salade composée 200g + Avocat 40g + Huile d'olive 5g", kcal: 410, p: "34g", g: "14g", l: "24g" },
+            ],
+            total: { kcal: "~1 480", p: "114g", g: "138g", l: "45g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "2 œufs pochés + Saumon fumé 60g + Pain complet 35g + Tomates", kcal: 370, p: "28g", g: "26g", l: "16g" },
+              { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal)", kcal: 600, p: "28g", g: "60g", l: "22g" },
+              { name: "Collation", food: "Skyr 150g + Amandes 10g", kcal: 195, p: "18g", g: "12g", l: "8g" },
+              { name: "Dîner", food: "Cabillaud 150g + Quinoa cuit 100g + Courgettes 150g + Huile d'olive 5g", kcal: 390, p: "38g", g: "38g", l: "9g" },
+            ],
+            total: { kcal: "~1 555", p: "112g", g: "136g", l: "55g" }
+          },
+        ]
+      }
+    ]
   },
   {
-    day: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
-    meals: [
-      { name: "Petit-déj", food: "2 œufs brouillés + 2 tranches pain complet + Avocat (1/2)", kcal: 420, p: "18g", g: "32g", l: "22g" },
-      { name: "Déjeuner", food: "Galette de lentilles (2) + Quinoa cuit (120g) + Poêlée de légumes (150g) + Huile d'olive (1 càc)", kcal: 480, p: "22g", g: "66g", l: "12g" },
-      { name: "Collation", food: "Alpro coco yaourt (150g) + Orange + Noix de pécan (15g)", kcal: 220, p: "4g", g: "24g", l: "12g" },
-      { name: "Dîner", food: "Steak haché 5% (150g) + Patate douce rôtie (150g) + Champignons (100g)", kcal: 420, p: "36g", g: "34g", l: "10g" },
-    ],
-    total: { kcal: "~1 540", p: "80g", g: "156g", l: "56g" }
+    id: 1,
+    label: "Phase 2 — Accélération",
+    months: "Mois 2",
+    kcal: "1 550–1 600",
+    p: "125–132g", g: "135–145g", l: "55–58g",
+    desc: "Réduire les glucides, augmenter les protéines. Glucides concentrés le matin et autour des séances. Légumes prioritaires le soir.",
+    macro: { kcal: "1 575", p: "130g", g: "140g", l: "56g" },
+    info: "Déficit ~450 kcal/jour · Glucides réduits de 15g par rapport au mois 1 · Protéines augmentées pour limiter la fonte musculaire",
+    weeks: [
+      {
+        label: "Semaine 1",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Omelette 3 œufs + Épinards sautés 80g + Pain complet 35g", kcal: 370, p: "28g", g: "28g", l: "14g" },
+              { name: "Déjeuner", food: "Poitrine de poulet 140g + Riz brun cuit 110g + Haricots verts 150g", kcal: 455, p: "42g", g: "44g", l: "8g" },
+              { name: "Collation", food: "Skyr nature 150g + Framboises 80g", kcal: 160, p: "18g", g: "16g", l: "1g" },
+              { name: "Dîner", food: "Cabillaud en papillote 150g + Légumes grillés 200g + Huile d'olive 8g", kcal: 380, p: "36g", g: "20g", l: "12g" },
+            ],
+            total: { kcal: "~1 365", p: "124g", g: "108g", l: "35g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Flocons d'avoine 50g + Lait écrémé 200ml + Pomme 120g + Cannelle", kcal: 370, p: "14g", g: "64g", l: "5g" },
+              { name: "Déjeuner", food: "Thon 130g + Riz brun cuit 110g + Salade de concombre 150g", kcal: 410, p: "36g", g: "44g", l: "4g" },
+              { name: "Collation", food: "Fromage blanc 0% 200g + 1 c.c. graines de lin", kcal: 200, p: "22g", g: "12g", l: "4g" },
+              { name: "Dîner", food: "Dinde hachée 130g + Champignons 150g + Purée chou-fleur 200g + Huile d'olive 8g", kcal: 400, p: "36g", g: "20g", l: "16g" },
+            ],
+            total: { kcal: "~1 380", p: "108g", g: "140g", l: "29g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Yaourt grec 150g + Granola maison 30g (avoine, amandes, miel) + Kiwi", kcal: 380, p: "16g", g: "50g", l: "10g" },
+              { name: "Déjeuner", food: "Salade césar allégée : Poulet 130g + Salade + Parmesan 15g + Croûtons 20g", kcal: 440, p: "38g", g: "28g", l: "16g" },
+              { name: "Collation", food: "2 galettes de riz + Beurre d'amande 15g", kcal: 195, p: "4g", g: "26g", l: "9g" },
+              { name: "Dîner", food: "Saumon grillé 140g + Quinoa cuit 100g + Asperges 150g", kcal: 490, p: "38g", g: "38g", l: "18g" },
+            ],
+            total: { kcal: "~1 505", p: "96g", g: "142g", l: "53g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "2 œufs durs + Banane 100g + Café/thé sans sucre", kcal: 255, p: "14g", g: "24g", l: "10g" },
+              { name: "Déjeuner", food: "Bowl lentilles 120g + Riz cuit 80g + Carottes 150g + Sauce tahini 10g", kcal: 450, p: "20g", g: "64g", l: "10g" },
+              { name: "Collation", food: "Cottage cheese 150g + Kiwi 100g", kcal: 175, p: "18g", g: "18g", l: "3g" },
+              { name: "Dîner", food: "Blanc de volaille 140g + Ratatouille 200g + Huile d'olive 8g", kcal: 390, p: "38g", g: "18g", l: "14g" },
+            ],
+            total: { kcal: "~1 270", p: "90g", g: "124g", l: "37g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie : Lait d'amande 250ml + Flocons d'avoine 40g + Myrtilles 80g + Skyr 100g", kcal: 360, p: "18g", g: "56g", l: "6g" },
+              { name: "Déjeuner", food: "Steak haché 5% 130g + Haricots rouges 100g + Épinards sautés 100g", kcal: 430, p: "36g", g: "30g", l: "14g" },
+              { name: "Collation", food: "Skyr 150g + Noix de cajou 15g", kcal: 235, p: "18g", g: "14g", l: "12g" },
+              { name: "Dîner", food: "Soupe poulet + légumes + Nouilles konjac 50g", kcal: 320, p: "34g", g: "16g", l: "8g" },
+            ],
+            total: { kcal: "~1 345", p: "106g", g: "116g", l: "40g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Bowl : Yaourt grec 150g + Fruits 100g + Graines 10g + Œuf à la coque", kcal: 360, p: "22g", g: "36g", l: "12g" },
+              { name: "Déjeuner", food: "Repas libre modéré (~600 kcal · restaurant ok)", kcal: 600, p: "30g", g: "56g", l: "22g" },
+              { name: "Collation", food: "Fromage blanc 0% 150g + Pomme", kcal: 160, p: "16g", g: "20g", l: "1g" },
+              { name: "Dîner", food: "Omelette 3 œufs + Salade verte + Pain complet 30g", kcal: 360, p: "26g", g: "20g", l: "18g" },
+            ],
+            total: { kcal: "~1 480", p: "94g", g: "132g", l: "53g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Pancakes avoine : Flocons 50g + Œuf 1 + Lait 100ml + Fruits frais 100g", kcal: 380, p: "16g", g: "56g", l: "8g" },
+              { name: "Déjeuner", food: "Poulet rôti 150g + Riz brun cuit 110g + Salade composée 150g", kcal: 480, p: "42g", g: "44g", l: "12g" },
+              { name: "Collation", food: "Skyr 150g + Myrtilles 80g", kcal: 160, p: "18g", g: "16g", l: "1g" },
+              { name: "Dîner", food: "Filet de sole 150g + Légumes vapeur 200g + Huile d'olive 10g", kcal: 330, p: "32g", g: "14g", l: "14g" },
+            ],
+            total: { kcal: "~1 350", p: "108g", g: "130g", l: "35g" }
+          },
+        ]
+      },
+      {
+        label: "Semaine 2",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Porridge : Avoine 50g + Lait écrémé 200ml + Graines de chia 10g + Kiwi 100g", kcal: 380, p: "16g", g: "60g", l: "7g" },
+              { name: "Déjeuner", food: "Poulet citronnelle 140g + Riz basmati cuit 110g + Poivrons 150g", kcal: 460, p: "40g", g: "46g", l: "9g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Poire 120g", kcal: 195, p: "18g", g: "24g", l: "2g" },
+              { name: "Dîner", food: "Thon 130g + Lentilles cuites 120g + Épinards 100g + Huile d'olive 8g", kcal: 430, p: "40g", g: "34g", l: "12g" },
+            ],
+            total: { kcal: "~1 465", p: "114g", g: "164g", l: "30g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "2 œufs pochés + Avocat 50g + Pain complet 35g + Orange 120g", kcal: 400, p: "16g", g: "36g", l: "18g" },
+              { name: "Déjeuner", food: "Dinde 130g + Patate douce 180g + Champignons 150g + Huile d'olive 5g", kcal: 450, p: "36g", g: "46g", l: "11g" },
+              { name: "Collation", food: "Skyr 150g + Noix 15g", kcal: 230, p: "18g", g: "12g", l: "12g" },
+              { name: "Dîner", food: "Saumon fumé 120g + Quinoa cuit 100g + Salade verte + Citron", kcal: 420, p: "34g", g: "36g", l: "14g" },
+            ],
+            total: { kcal: "~1 500", p: "104g", g: "130g", l: "55g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Flocons d'avoine 40g + Fruits rouges 100g + Amandes 10g", kcal: 395, p: "24g", g: "54g", l: "9g" },
+              { name: "Déjeuner", food: "Poulet 140g + Pâtes complètes cuites 120g + Courgettes 150g + Huile d'olive 5g", kcal: 490, p: "42g", g: "50g", l: "11g" },
+              { name: "Collation", food: "Cottage cheese 150g + 1 pomme 130g", kcal: 180, p: "16g", g: "22g", l: "3g" },
+              { name: "Dîner", food: "Cabillaud 150g + Patate douce 150g + Haricots verts 150g + Huile d'olive 5g", kcal: 420, p: "38g", g: "42g", l: "8g" },
+            ],
+            total: { kcal: "~1 485", p: "120g", g: "168g", l: "31g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 250g + Banane 100g + Flocons d'avoine 30g", kcal: 370, p: "24g", g: "54g", l: "3g" },
+              { name: "Déjeuner", food: "Steak 5% 130g + Riz brun cuit 110g + Poivrons grillés 150g", kcal: 450, p: "36g", g: "44g", l: "12g" },
+              { name: "Collation", food: "Yaourt grec 150g + Framboises 80g + Chia 8g", kcal: 195, p: "14g", g: "18g", l: "6g" },
+              { name: "Dîner", food: "Poulet 140g + Lentilles cuites 100g + Carottes 150g + Huile d'olive 5g", kcal: 440, p: "42g", g: "36g", l: "11g" },
+            ],
+            total: { kcal: "~1 455", p: "116g", g: "152g", l: "32g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie vert : Épinards 50g + Lait d'amande 200ml + Banane 80g + Skyr 100g", kcal: 310, p: "16g", g: "48g", l: "4g" },
+              { name: "Déjeuner", food: "Saumon 140g + Riz cuit 100g + Épinards sautés 100g + Huile d'olive 5g", kcal: 490, p: "38g", g: "36g", l: "20g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Kiwi 100g", kcal: 175, p: "18g", g: "18g", l: "2g" },
+              { name: "Dîner", food: "Dinde 130g + Pommes de terre 180g + Champignons 150g + Huile d'olive 5g", kcal: 440, p: "36g", g: "44g", l: "10g" },
+            ],
+            total: { kcal: "~1 415", p: "108g", g: "146g", l: "36g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Granola 30g + Fruits rouges 100g", kcal: 370, p: "22g", g: "50g", l: "7g" },
+              { name: "Déjeuner", food: "Poulet rôti 160g + Patate douce 200g + Salade composée 150g", kcal: 520, p: "44g", g: "54g", l: "12g" },
+              { name: "Collation", food: "Fromage blanc 0% 200g + Amandes 10g", kcal: 235, p: "22g", g: "12g", l: "9g" },
+              { name: "Dîner", food: "Filet de lieu 150g + Quinoa cuit 100g + Courgettes 150g + Huile d'olive 5g", kcal: 390, p: "36g", g: "38g", l: "10g" },
+            ],
+            total: { kcal: "~1 515", p: "124g", g: "154g", l: "38g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "2 œufs brouillés + Saumon fumé 60g + Pain complet 35g", kcal: 360, p: "26g", g: "26g", l: "16g" },
+              { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal · idéal : restaurant ou plat maison festif)", kcal: 600, p: "28g", g: "58g", l: "22g" },
+              { name: "Collation", food: "Skyr 150g + Orange 130g", kcal: 175, p: "16g", g: "24g", l: "1g" },
+              { name: "Dîner", food: "Poulet 130g + Légumes rôtis 200g + Huile d'olive 8g", kcal: 380, p: "36g", g: "20g", l: "14g" },
+            ],
+            total: { kcal: "~1 515", p: "106g", g: "128g", l: "53g" }
+          },
+        ]
+      },
+      {
+        label: "Semaine 3",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Avoine 45g + Fraises 100g + Graines lin 8g", kcal: 390, p: "24g", g: "56g", l: "5g" },
+              { name: "Déjeuner", food: "Poulet 140g + Quinoa cuit 110g + Champignons 150g + Huile d'olive 5g", kcal: 460, p: "40g", g: "42g", l: "12g" },
+              { name: "Collation", food: "Fromage blanc 200g + Noix 10g", kcal: 230, p: "22g", g: "10g", l: "11g" },
+              { name: "Dîner", food: "Lieu noir 150g + Patate douce 160g + Épinards 100g + Huile d'olive 8g", kcal: 400, p: "36g", g: "40g", l: "12g" },
+            ],
+            total: { kcal: "~1 480", p: "122g", g: "148g", l: "40g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Porridge : Avoine 50g + Lait écrémé 200ml + Mangue 80g + Chia 8g", kcal: 380, p: "14g", g: "62g", l: "6g" },
+              { name: "Déjeuner", food: "Saumon 140g + Riz brun 100g + Courgettes 150g + Huile d'olive 5g", kcal: 490, p: "38g", g: "36g", l: "20g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Kiwi 100g", kcal: 175, p: "18g", g: "18g", l: "2g" },
+              { name: "Dîner", food: "Dinde 130g + Lentilles cuites 100g + Poivrons 150g + Huile d'olive 5g", kcal: 410, p: "38g", g: "32g", l: "10g" },
+            ],
+            total: { kcal: "~1 455", p: "108g", g: "148g", l: "38g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "2 œufs durs + Avoine 40g + Lait 200ml + Orange 120g", kcal: 390, p: "22g", g: "52g", l: "10g" },
+              { name: "Déjeuner", food: "Steak haché 5% 130g + Patate douce 180g + Salade 100g + Huile d'olive 8g", kcal: 490, p: "36g", g: "48g", l: "16g" },
+              { name: "Collation", food: "Skyr 150g + Amandes 12g", kcal: 210, p: "18g", g: "12g", l: "10g" },
+              { name: "Dîner", food: "Cabillaud 150g + Quinoa cuit 100g + Haricots verts 150g + Huile d'olive 5g", kcal: 390, p: "38g", g: "38g", l: "8g" },
+            ],
+            total: { kcal: "~1 480", p: "114g", g: "150g", l: "44g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie : Lait d'amande 200ml + Skyr 150g + Avoine 35g + Myrtilles 80g", kcal: 350, p: "20g", g: "50g", l: "6g" },
+              { name: "Déjeuner", food: "Thon 130g + Pâtes complètes cuites 110g + Tomates 150g + Huile d'olive 5g", kcal: 440, p: "36g", g: "48g", l: "9g" },
+              { name: "Collation", food: "Cottage cheese 150g + Poire 120g", kcal: 185, p: "18g", g: "18g", l: "4g" },
+              { name: "Dîner", food: "Poulet 140g + Riz brun 100g + Carottes 150g + Huile d'olive 5g", kcal: 450, p: "40g", g: "38g", l: "11g" },
+            ],
+            total: { kcal: "~1 425", p: "114g", g: "154g", l: "30g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Yaourt grec 150g + Granola 30g + Fruits rouges 100g + Noix 10g", kcal: 385, p: "16g", g: "48g", l: "14g" },
+              { name: "Déjeuner", food: "Poulet citronnelle 140g + Quinoa cuit 110g + Courgettes 150g + Huile d'olive 5g", kcal: 460, p: "40g", g: "42g", l: "12g" },
+              { name: "Collation", food: "Fromage blanc 200g + Chocolat noir 10g", kcal: 225, p: "22g", g: "16g", l: "8g" },
+              { name: "Dîner", food: "Saumon 130g + Haricots verts 200g + Champignons 100g + Huile d'olive 8g", kcal: 400, p: "34g", g: "14g", l: "22g" },
+            ],
+            total: { kcal: "~1 470", p: "112g", g: "120g", l: "56g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Omelette 3 œufs + Pain complet 35g + Tomates 100g", kcal: 370, p: "24g", g: "26g", l: "18g" },
+              { name: "Déjeuner", food: "Repas libre modéré (~620 kcal)", kcal: 620, p: "30g", g: "58g", l: "24g" },
+              { name: "Collation", food: "Skyr 150g + Pomme 130g", kcal: 185, p: "18g", g: "20g", l: "1g" },
+              { name: "Dîner", food: "Cabillaud 150g + Patate douce 150g + Légumes vapeur 150g + Huile d'olive 5g", kcal: 380, p: "36g", g: "38g", l: "8g" },
+            ],
+            total: { kcal: "~1 555", p: "108g", g: "142g", l: "51g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 250g + Avoine 40g + Fruits rouges 100g + Miel 5g", kcal: 395, p: "26g", g: "56g", l: "4g" },
+              { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal)", kcal: 600, p: "28g", g: "58g", l: "22g" },
+              { name: "Collation", food: "Yaourt protéiné 150g", kcal: 130, p: "16g", g: "10g", l: "2g" },
+              { name: "Dîner", food: "Dinde 130g + Quinoa cuit 100g + Épinards sautés 120g + Huile d'olive 5g", kcal: 410, p: "38g", g: "36g", l: "11g" },
+            ],
+            total: { kcal: "~1 535", p: "108g", g: "160g", l: "39g" }
+          },
+        ]
+      },
+      {
+        label: "Semaine 4",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie : Lait 200ml + Fromage blanc 150g + Avoine 35g + Banane 80g", kcal: 375, p: "22g", g: "56g", l: "5g" },
+              { name: "Déjeuner", food: "Blanc de poulet 140g + Riz basmati 110g + Poivrons 150g + Huile d'olive 8g", kcal: 470, p: "42g", g: "46g", l: "13g" },
+              { name: "Collation", food: "Skyr 150g + Framboises 80g + Noix 10g", kcal: 220, p: "18g", g: "14g", l: "9g" },
+              { name: "Dîner", food: "Thon 130g + Patate douce 160g + Salade verte + Huile d'olive 5g", kcal: 430, p: "36g", g: "42g", l: "11g" },
+            ],
+            total: { kcal: "~1 495", p: "118g", g: "158g", l: "38g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Porridge : Avoine 45g + Lait d'amande 200ml + Kiwi 100g + Amandes 10g", kcal: 380, p: "12g", g: "58g", l: "11g" },
+              { name: "Déjeuner", food: "Saumon grillé 140g + Pâtes complètes cuites 110g + Courgettes 150g + Huile d'olive 5g", kcal: 500, p: "38g", g: "46g", l: "18g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Chocolat noir 10g", kcal: 220, p: "18g", g: "20g", l: "7g" },
+              { name: "Dîner", food: "Poulet 140g + Lentilles cuites 100g + Champignons 150g + Huile d'olive 5g", kcal: 430, p: "40g", g: "30g", l: "12g" },
+            ],
+            total: { kcal: "~1 530", p: "108g", g: "154g", l: "48g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Granola 30g + Myrtilles 100g + Chia 8g", kcal: 385, p: "22g", g: "54g", l: "7g" },
+              { name: "Déjeuner", food: "Dinde 130g + Riz complet 110g + Carottes 150g + Huile d'olive 5g", kcal: 440, p: "38g", g: "46g", l: "9g" },
+              { name: "Collation", food: "Fromage blanc 200g + Poire 120g", kcal: 200, p: "22g", g: "22g", l: "1g" },
+              { name: "Dîner", food: "Cabillaud 150g + Quinoa cuit 100g + Poivrons 150g + Huile d'olive 5g", kcal: 390, p: "38g", g: "38g", l: "8g" },
+            ],
+            total: { kcal: "~1 415", p: "120g", g: "160g", l: "25g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "2 œufs pochés + Avocat 40g + Pain complet 35g + Tomates 100g", kcal: 380, p: "16g", g: "28g", l: "20g" },
+              { name: "Déjeuner", food: "Poulet 140g + Patate douce 180g + Haricots verts 150g + Huile d'olive 5g", kcal: 460, p: "40g", g: "46g", l: "11g" },
+              { name: "Collation", food: "Cottage cheese 150g + Amandes 10g + Kiwi 100g", kcal: 235, p: "18g", g: "18g", l: "12g" },
+              { name: "Dîner", food: "Steak 5% 130g + Lentilles cuites 100g + Épinards 100g + Huile d'olive 5g", kcal: 420, p: "38g", g: "28g", l: "13g" },
+            ],
+            total: { kcal: "~1 495", p: "112g", g: "120g", l: "56g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Bowl : Fromage blanc 200g + Avoine 40g + Fruits rouges 100g + Lin 8g", kcal: 390, p: "24g", g: "54g", l: "5g" },
+              { name: "Déjeuner", food: "Lieu noir 150g + Riz brun 100g + Champignons 150g + Huile d'olive 8g", kcal: 400, p: "36g", g: "36g", l: "12g" },
+              { name: "Collation", food: "Yaourt grec 150g + Noix de cajou 12g + Orange 120g", kcal: 250, p: "14g", g: "26g", l: "11g" },
+              { name: "Dîner", food: "Saumon 140g + Courgettes 200g + Quinoa cuit 80g + Huile d'olive 5g", kcal: 460, p: "36g", g: "30g", l: "21g" },
+            ],
+            total: { kcal: "~1 500", p: "110g", g: "146g", l: "49g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Pancakes : Avoine 50g + 2 œufs + Lait 100ml + Fraises 100g", kcal: 410, p: "20g", g: "54g", l: "10g" },
+              { name: "Déjeuner", food: "Repas libre modéré (~620 kcal)", kcal: 620, p: "30g", g: "58g", l: "24g" },
+              { name: "Collation", food: "Skyr 150g + Myrtilles 80g", kcal: 155, p: "18g", g: "14g", l: "1g" },
+              { name: "Dîner", food: "Poulet 130g + Ratatouille 200g + Huile d'olive 8g", kcal: 370, p: "36g", g: "18g", l: "14g" },
+            ],
+            total: { kcal: "~1 555", p: "104g", g: "144g", l: "49g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Avoine 40g + Banane 90g + Amandes 10g", kcal: 400, p: "24g", g: "58g", l: "9g" },
+              { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal)", kcal: 600, p: "28g", g: "58g", l: "22g" },
+              { name: "Collation", food: "Fromage blanc 200g + Fraises 100g", kcal: 175, p: "22g", g: "14g", l: "1g" },
+              { name: "Dîner", food: "Cabillaud 150g + Patate douce 150g + Légumes grillés 150g + Huile d'olive 5g", kcal: 390, p: "36g", g: "38g", l: "9g" },
+            ],
+            total: { kcal: "~1 565", p: "110g", g: "168g", l: "41g" }
+          },
+        ]
+      }
+    ]
   },
   {
-    day: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
-    meals: [
-      { name: "Petit-déj", food: "Porridge flocons (60g) cuit dans l'eau + Alpro coco yaourt (80g) en topping + Mangue (100g) + Beurre cacahuète (15g)", kcal: 490, p: "13g", g: "64g", l: "18g" },
-      { name: "Déjeuner", food: "Poulet (150g) + Pâtes complètes cuites (150g) + Tomates + Huile d'olive (1 càc)", kcal: 490, p: "40g", g: "56g", l: "10g" },
-      { name: "Collation", food: "Yaourt à la grecque (150g) + Framboises + Chia (10g)", kcal: 210, p: "14g", g: "18g", l: "6g" },
-      { name: "Dîner", food: "Jambon (120g) + Lentilles cuites (100g) + Chou rouge (100g) + Fromage à tartiner (20g)", kcal: 370, p: "34g", g: "32g", l: "12g" },
-    ],
-    total: { kcal: "~1 550", p: "101g", g: "168g", l: "46g" }
-  },
-  {
-    day: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
-    meals: [
-      { name: "Petit-déj", food: "2 œufs + Wrap complet + Chèvre (20g) + Tomate", kcal: 420, p: "20g", g: "36g", l: "18g" },
-      { name: "Déjeuner", food: "Noix de bœuf (150g) + Riz basmati cuit (150g) + Champignons + Poivrons (150g)", kcal: 500, p: "40g", g: "52g", l: "14g" },
-      { name: "Collation", food: "Alpro coco yaourt (150g) + Banane + Amandes (15g)", kcal: 250, p: "5g", g: "34g", l: "10g" },
-      { name: "Dîner", food: "Thon (130g) + Patate douce rôtie (150g) + Endives + Yaourt grec (100g)", kcal: 420, p: "38g", g: "44g", l: "6g" },
-    ],
-    total: { kcal: "~1 550", p: "103g", g: "160g", l: "47g" }
-  },
-  {
-    day: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
-    meals: [
-      { name: "Petit-déj", food: "Porridge flocons (60g) cuit dans l'eau + Alpro coco yaourt (80g) en topping + Pomme râpée + Noix de pécan (15g)", kcal: 460, p: "12g", g: "60g", l: "16g" },
-      { name: "Déjeuner", food: "Galette de lentilles (2) + Quinoa cuit (120g) + Chou rouge (150g) + Feta (20g)", kcal: 480, p: "24g", g: "58g", l: "16g" },
-      { name: "Collation", food: "Alpro coco yaourt (150g) + Mangue (100g) + Sirop d'érable (5ml)", kcal: 200, p: "4g", g: "32g", l: "5g" },
-      { name: "Dîner", food: "Poulet (150g) + Lentilles cuites (100g) + Poireaux (150g) + Huile d'olive (1 càc)", kcal: 420, p: "44g", g: "30g", l: "10g" },
-    ],
-    total: { kcal: "~1 570", p: "92g", g: "176g", l: "46g" }
-  },
-  {
-    day: "Samedi", emoji: "🏃", sport: "Running + Pilates",
-    meals: [
-      { name: "Petit-déj", food: "3 œufs brouillés + Avocat (1/2) + 1 tranche pain complet + Framboises", kcal: 460, p: "20g", g: "22g", l: "28g" },
-      { name: "Déjeuner", food: "Poulet (180g) + Pâtes complètes cuites (150g) + Poireaux (150g) + Chèvre (20g)", kcal: 540, p: "48g", g: "54g", l: "16g" },
-      { name: "Collation", food: "Alpro coco yaourt (150g) + Orange + Chia (10g)", kcal: 190, p: "4g", g: "22g", l: "6g" },
-      { name: "Dîner", food: "Steak haché 5% (150g) + Patate douce rôtie (150g) + Poivrons grillés (100g)", kcal: 430, p: "36g", g: "36g", l: "12g" },
-    ],
-    total: { kcal: "~1 660", p: "111g", g: "132g", l: "70g" }
-  },
-  {
-    day: "Dimanche", emoji: "🧘", sport: "Pilates",
-    meals: [
-      { name: "Petit-déj", food: "Porridge flocons (70g) cuit dans l'eau + Alpro coco yaourt (80g) en topping + Banane + Beurre cacahuète (20g)", kcal: 530, p: "14g", g: "70g", l: "18g" },
-      { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal · idéal : riz + protéine)", kcal: 600, p: "30g", g: "60g", l: "20g" },
-      { name: "Collation", food: "Yaourt à la grecque + Framboises + Amandes", kcal: 220, p: "14g", g: "14g", l: "10g" },
-      { name: "Dîner", food: "Thon (130g) + Lentilles cuites (100g) + Quinoa cuit (80g) + Tomates", kcal: 450, p: "40g", g: "48g", l: "8g" },
-    ],
-    total: { kcal: "~1 790", p: "98g", g: "190g", l: "56g" }
+    id: 2,
+    label: "Phase 3 — Affinage",
+    months: "Mois 3",
+    kcal: "1 500–1 550",
+    p: "130–138g", g: "118–128g", l: "54–58g",
+    desc: "Optimiser la composition corporelle. Glucides concentrés le matin, protéines maximisées, légumes en priorité le soir. Ancrer les habitudes pour la maintenance.",
+    macro: { kcal: "1 520", p: "135g", g: "122g", l: "55g" },
+    info: "Déficit ~500 kcal/jour · Glucides réduits le soir · Protéines maximales pour préserver la masse maigre · Habituer le corps à la maintenance",
+    weeks: [
+      {
+        label: "Semaine 1",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Omelette blanche (4 blancs + 1 jaune) + Épinards 80g + Pain complet 30g", kcal: 310, p: "28g", g: "22g", l: "10g" },
+              { name: "Déjeuner", food: "Poulet rôti 140g + Riz brun cuit 100g + Salade composée 150g", kcal: 450, p: "40g", g: "38g", l: "12g" },
+              { name: "Collation", food: "Skyr nature 150g + Myrtilles 80g", kcal: 160, p: "18g", g: "16g", l: "1g" },
+              { name: "Dîner", food: "Filet de sole 150g + Légumes vapeur 200g + Huile d'olive 10g", kcal: 330, p: "32g", g: "14g", l: "14g" },
+            ],
+            total: { kcal: "~1 250", p: "118g", g: "90g", l: "37g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Porridge : Avoine 45g + Lait écrémé 200ml + Graines de chia 8g + Kiwi 100g", kcal: 360, p: "16g", g: "54g", l: "6g" },
+              { name: "Déjeuner", food: "Thon 130g + Lentilles beluga cuites 120g + Concombre 150g + Citron", kcal: 380, p: "38g", g: "36g", l: "4g" },
+              { name: "Collation", food: "Fromage blanc 0% 200g + 1 c.c. miel", kcal: 185, p: "22g", g: "16g", l: "1g" },
+              { name: "Dîner", food: "Dinde 130g + Courgettes 200g + Champignons 150g + Huile d'olive 8g", kcal: 360, p: "36g", g: "14g", l: "14g" },
+            ],
+            total: { kcal: "~1 285", p: "112g", g: "120g", l: "25g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "2 œufs durs + Pain complet 35g + Orange 130g", kcal: 310, p: "16g", g: "38g", l: "10g" },
+              { name: "Déjeuner", food: "Saumon fumé 120g + Quinoa cuit 100g + Salade verte + Avocat 40g", kcal: 470, p: "32g", g: "36g", l: "22g" },
+              { name: "Collation", food: "Cottage cheese 150g + Amandes effilées 10g", kcal: 195, p: "18g", g: "8g", l: "10g" },
+              { name: "Dîner", food: "Saint-Jacques 150g + Légumes verts 200g + Huile d'olive 8g", kcal: 320, p: "30g", g: "12g", l: "12g" },
+            ],
+            total: { kcal: "~1 295", p: "96g", g: "94g", l: "54g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie vert : Épinards 50g + Lait d'amande 200ml + Banane 70g + Skyr 130g", kcal: 310, p: "18g", g: "46g", l: "4g" },
+              { name: "Déjeuner", food: "Poulet 140g + Patate douce 160g + Haricots verts 150g", kcal: 440, p: "40g", g: "44g", l: "9g" },
+              { name: "Collation", food: "Yaourt grec 150g + Graines de tournesol 10g", kcal: 210, p: "14g", g: "12g", l: "10g" },
+              { name: "Dîner", food: "Soupe miso légère + Œuf poché + Légumes de saison 200g", kcal: 280, p: "18g", g: "20g", l: "8g" },
+            ],
+            total: { kcal: "~1 240", p: "90g", g: "122g", l: "31g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Bowl protéiné : Skyr 170g + Avoine 35g + Baies 80g + Graines de lin 8g", kcal: 360, p: "22g", g: "50g", l: "6g" },
+              { name: "Déjeuner", food: "Steak de thon grillé 140g + Riz brun cuit 90g + Épinards sautés 100g", kcal: 430, p: "40g", g: "34g", l: "12g" },
+              { name: "Collation", food: "Pomme 130g + Beurre d'amande 10g", kcal: 165, p: "2g", g: "24g", l: "7g" },
+              { name: "Dîner", food: "Poulet citronnelle 140g + Légumes wok 200g + Sauce soja allégée", kcal: 360, p: "38g", g: "16g", l: "12g" },
+            ],
+            total: { kcal: "~1 315", p: "102g", g: "124g", l: "37g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Pancakes protéinés : Avoine 45g + Œuf 1 + Lait écrémé 100ml + Fruits frais 100g", kcal: 360, p: "18g", g: "52g", l: "7g" },
+              { name: "Déjeuner", food: "Repas plaisir (~640 kcal max)", kcal: 640, p: "28g", g: "60g", l: "24g" },
+              { name: "Collation", food: "Skyr 150g + Fraises 100g", kcal: 155, p: "18g", g: "14g", l: "1g" },
+              { name: "Dîner", food: "Salade repas : Poulet 120g + Crudités 150g + Huile d'olive 8g + Citron", kcal: 330, p: "34g", g: "12g", l: "14g" },
+            ],
+            total: { kcal: "~1 485", p: "98g", g: "138g", l: "46g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Flocons d'avoine 45g + Lait d'amande 200ml + Fruits rouges 100g + Amandes 10g", kcal: 360, p: "10g", g: "54g", l: "10g" },
+              { name: "Déjeuner", food: "Saumon 140g + Lentilles cuites 120g + Carottes 150g + Huile d'olive 5g", kcal: 490, p: "40g", g: "38g", l: "17g" },
+              { name: "Collation", food: "Fromage blanc 0% 200g + Kiwi 100g", kcal: 185, p: "22g", g: "18g", l: "1g" },
+              { name: "Dîner", food: "Dinde 130g + Ratatouille 200g + Huile d'olive 5g", kcal: 370, p: "34g", g: "18g", l: "12g" },
+            ],
+            total: { kcal: "~1 405", p: "106g", g: "128g", l: "40g" }
+          },
+        ]
+      },
+      {
+        label: "Semaine 2",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Avoine 40g + Fruits rouges 100g", kcal: 380, p: "24g", g: "54g", l: "3g" },
+              { name: "Déjeuner", food: "Poulet 140g + Quinoa cuit 100g + Épinards sautés 120g + Huile d'olive 5g", kcal: 450, p: "40g", g: "38g", l: "12g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Pêche 130g", kcal: 185, p: "18g", g: "20g", l: "2g" },
+              { name: "Dîner", food: "Cabillaud 150g + Légumes rôtis 200g + Huile d'olive 8g", kcal: 350, p: "36g", g: "16g", l: "12g" },
+            ],
+            total: { kcal: "~1 365", p: "118g", g: "128g", l: "29g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Omelette 2 œufs + 2 blancs + Tomates 100g + Pain complet 30g", kcal: 320, p: "26g", g: "24g", l: "10g" },
+              { name: "Déjeuner", food: "Thon 130g + Patate douce 160g + Haricots verts 150g + Huile d'olive 5g", kcal: 440, p: "36g", g: "44g", l: "10g" },
+              { name: "Collation", food: "Skyr 150g + Amandes 10g", kcal: 195, p: "18g", g: "12g", l: "8g" },
+              { name: "Dîner", food: "Dinde 130g + Lentilles cuites 100g + Courgettes 150g + Huile d'olive 5g", kcal: 400, p: "38g", g: "30g", l: "10g" },
+            ],
+            total: { kcal: "~1 355", p: "118g", g: "110g", l: "38g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 250g + Flocons d'avoine 35g + Banane 80g", kcal: 370, p: "26g", g: "52g", l: "3g" },
+              { name: "Déjeuner", food: "Steak haché 5% 130g + Riz brun cuit 90g + Poivrons grillés 150g", kcal: 440, p: "34g", g: "38g", l: "13g" },
+              { name: "Collation", food: "Cottage cheese 150g + Noix 10g", kcal: 200, p: "18g", g: "8g", l: "10g" },
+              { name: "Dîner", food: "Saumon 140g + Asperges 200g + Huile d'olive 8g", kcal: 420, p: "34g", g: "10g", l: "26g" },
+            ],
+            total: { kcal: "~1 430", p: "112g", g: "108g", l: "52g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie : Lait écrémé 200ml + Skyr 130g + Avoine 35g + Framboises 80g", kcal: 340, p: "20g", g: "50g", l: "4g" },
+              { name: "Déjeuner", food: "Poulet 140g + Lentilles cuites 120g + Carottes 150g + Huile d'olive 5g", kcal: 450, p: "42g", g: "38g", l: "11g" },
+              { name: "Collation", food: "Yaourt grec 150g + Kiwi 100g", kcal: 185, p: "12g", g: "18g", l: "5g" },
+              { name: "Dîner", food: "Cabillaud 150g + Épinards sautés 150g + Champignons 100g + Huile d'olive 8g", kcal: 330, p: "36g", g: "10g", l: "13g" },
+            ],
+            total: { kcal: "~1 305", p: "110g", g: "116g", l: "33g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Bowl : Skyr 170g + Avoine 40g + Baies 80g + Graines lin 8g", kcal: 365, p: "22g", g: "52g", l: "6g" },
+              { name: "Déjeuner", food: "Saumon 140g + Quinoa cuit 100g + Épinards 100g + Huile d'olive 5g", kcal: 490, p: "38g", g: "36g", l: "20g" },
+              { name: "Collation", food: "Fromage blanc 0% 200g + Fruits rouges 80g", kcal: 185, p: "22g", g: "16g", l: "1g" },
+              { name: "Dîner", food: "Dinde hachée 130g + Champignons 150g + Courgettes 150g + Huile d'olive 5g", kcal: 360, p: "34g", g: "14g", l: "15g" },
+            ],
+            total: { kcal: "~1 400", p: "116g", g: "118g", l: "42g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "3 œufs brouillés + Avocat 40g + Pain complet 30g + Fruits rouges 80g", kcal: 410, p: "22g", g: "26g", l: "22g" },
+              { name: "Déjeuner", food: "Repas plaisir (~640 kcal max)", kcal: 640, p: "28g", g: "60g", l: "24g" },
+              { name: "Collation", food: "Skyr 150g + Noix de cajou 10g", kcal: 220, p: "18g", g: "14g", l: "9g" },
+              { name: "Dîner", food: "Poulet 130g + Ratatouille 200g + Huile d'olive 5g", kcal: 350, p: "34g", g: "16g", l: "13g" },
+            ],
+            total: { kcal: "~1 620", p: "102g", g: "116g", l: "68g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Pancakes protéinés : Avoine 45g + 2 blancs d'œufs + Skyr 100g + Fruits 80g", kcal: 350, p: "22g", g: "50g", l: "5g" },
+              { name: "Déjeuner", food: "Steak 5% 130g + Lentilles cuites 100g + Salade composée 150g + Huile d'olive 5g", kcal: 440, p: "36g", g: "30g", l: "15g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Kiwi 100g", kcal: 175, p: "18g", g: "18g", l: "2g" },
+              { name: "Dîner", food: "Cabillaud 150g + Patate douce 130g + Courgettes 150g + Huile d'olive 5g", kcal: 380, p: "36g", g: "36g", l: "9g" },
+            ],
+            total: { kcal: "~1 345", p: "112g", g: "134g", l: "31g" }
+          },
+        ]
+      },
+      {
+        label: "Semaine 3",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Avoine 40g + Myrtilles 100g + Amandes 10g", kcal: 395, p: "24g", g: "54g", l: "9g" },
+              { name: "Déjeuner", food: "Poulet 140g + Lentilles cuites 120g + Carottes 150g + Huile d'olive 5g", kcal: 450, p: "42g", g: "36g", l: "11g" },
+              { name: "Collation", food: "Fromage blanc 200g + Framboises 80g", kcal: 185, p: "22g", g: "14g", l: "1g" },
+              { name: "Dîner", food: "Lieu noir 150g + Épinards sautés 150g + Champignons 100g + Huile d'olive 8g", kcal: 330, p: "36g", g: "10g", l: "13g" },
+            ],
+            total: { kcal: "~1 360", p: "124g", g: "114g", l: "34g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Omelette 3 œufs + Tomates 100g + Pain complet 30g", kcal: 360, p: "24g", g: "22g", l: "18g" },
+              { name: "Déjeuner", food: "Thon 130g + Quinoa cuit 100g + Courgettes 150g + Huile d'olive 5g", kcal: 400, p: "36g", g: "36g", l: "10g" },
+              { name: "Collation", food: "Skyr 150g + Pomme 130g", kcal: 185, p: "18g", g: "20g", l: "1g" },
+              { name: "Dîner", food: "Cabillaud 150g + Patate douce 140g + Haricots verts 150g + Huile d'olive 5g", kcal: 400, p: "36g", g: "42g", l: "8g" },
+            ],
+            total: { kcal: "~1 345", p: "114g", g: "120g", l: "37g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie : Lait écrémé 200ml + Skyr 150g + Avoine 35g + Fraises 80g", kcal: 360, p: "22g", g: "52g", l: "4g" },
+              { name: "Déjeuner", food: "Saumon 140g + Riz brun 90g + Poivrons 150g + Huile d'olive 5g", kcal: 480, p: "36g", g: "34g", l: "20g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Noix 10g", kcal: 210, p: "18g", g: "10g", l: "11g" },
+              { name: "Dîner", food: "Dinde 130g + Courgettes 200g + Champignons 100g + Huile d'olive 8g", kcal: 350, p: "34g", g: "12g", l: "15g" },
+            ],
+            total: { kcal: "~1 400", p: "110g", g: "108g", l: "50g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Porridge : Avoine 45g + Lait d'amande 200ml + Kiwi 100g + Graines lin 8g", kcal: 370, p: "12g", g: "56g", l: "8g" },
+              { name: "Déjeuner", food: "Poulet 140g + Lentilles beluga 120g + Épinards 100g + Huile d'olive 5g", kcal: 440, p: "42g", g: "32g", l: "12g" },
+              { name: "Collation", food: "Cottage cheese 150g + Amandes 10g", kcal: 210, p: "18g", g: "8g", l: "12g" },
+              { name: "Dîner", food: "Saint-Jacques 150g + Patate douce 130g + Légumes vapeur 150g + Huile d'olive 5g", kcal: 380, p: "30g", g: "38g", l: "10g" },
+            ],
+            total: { kcal: "~1 400", p: "102g", g: "134g", l: "42g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Bowl protéiné : Skyr 170g + Avoine 40g + Baies 80g + Lin 8g", kcal: 365, p: "22g", g: "52g", l: "6g" },
+              { name: "Déjeuner", food: "Steak haché 5% 130g + Quinoa cuit 100g + Carottes 150g + Huile d'olive 5g", kcal: 470, p: "36g", g: "40g", l: "15g" },
+              { name: "Collation", food: "Fromage blanc 200g + Chocolat noir 10g", kcal: 225, p: "22g", g: "16g", l: "8g" },
+              { name: "Dîner", food: "Cabillaud 150g + Asperges 200g + Huile d'olive 10g", kcal: 300, p: "32g", g: "8g", l: "14g" },
+            ],
+            total: { kcal: "~1 360", p: "112g", g: "116g", l: "43g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Yaourt grec 150g + Avoine 40g + Mangue 80g + Noix 10g", kcal: 380, p: "16g", g: "54g", l: "12g" },
+              { name: "Déjeuner", food: "Repas plaisir (~640 kcal max)", kcal: 640, p: "28g", g: "60g", l: "24g" },
+              { name: "Collation", food: "Skyr 150g + Kiwi 100g", kcal: 165, p: "18g", g: "16g", l: "1g" },
+              { name: "Dîner", food: "Saumon 130g + Épinards sautés 150g + Riz brun 80g + Huile d'olive 5g", kcal: 430, p: "34g", g: "28g", l: "19g" },
+            ],
+            total: { kcal: "~1 615", p: "96g", g: "158g", l: "56g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "2 œufs + Saumon fumé 60g + Pain complet 30g + Tomates 100g", kcal: 360, p: "26g", g: "22g", l: "17g" },
+              { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal)", kcal: 600, p: "28g", g: "58g", l: "22g" },
+              { name: "Collation", food: "Fromage blanc 200g + Orange 120g", kcal: 185, p: "22g", g: "18g", l: "1g" },
+              { name: "Dîner", food: "Dinde 130g + Courgettes 200g + Carottes 100g + Huile d'olive 5g", kcal: 340, p: "34g", g: "16g", l: "12g" },
+            ],
+            total: { kcal: "~1 485", p: "110g", g: "114g", l: "52g" }
+          },
+        ]
+      },
+      {
+        label: "Semaine 4",
+        days: [
+          {
+            label: "Lundi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 250g + Avoine 40g + Fruits rouges 100g + Chia 8g", kcal: 390, p: "26g", g: "54g", l: "5g" },
+              { name: "Déjeuner", food: "Poulet rôti 140g + Patate douce 140g + Haricots verts 150g + Huile d'olive 5g", kcal: 450, p: "40g", g: "42g", l: "12g" },
+              { name: "Collation", food: "Skyr 150g + Amandes 12g + Poire 120g", kcal: 235, p: "18g", g: "24g", l: "9g" },
+              { name: "Dîner", food: "Thon 140g + Lentilles cuites 100g + Poivrons 150g + Huile d'olive 5g", kcal: 410, p: "40g", g: "32g", l: "11g" },
+            ],
+            total: { kcal: "~1 485", p: "124g", g: "152g", l: "37g" }
+          },
+          {
+            label: "Mardi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Omelette blanche 4 blancs + 1 jaune + Épinards 80g + Pain complet 30g", kcal: 310, p: "28g", g: "22g", l: "10g" },
+              { name: "Déjeuner", food: "Saumon fumé 120g + Quinoa cuit 100g + Concombre 150g + Huile d'olive 5g", kcal: 420, p: "32g", g: "36g", l: "14g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Myrtilles 80g", kcal: 165, p: "18g", g: "14g", l: "2g" },
+              { name: "Dîner", food: "Cabillaud 150g + Lentilles cuites 100g + Courgettes 150g + Huile d'olive 8g", kcal: 380, p: "38g", g: "26g", l: "12g" },
+            ],
+            total: { kcal: "~1 275", p: "116g", g: "98g", l: "38g" }
+          },
+          {
+            label: "Mercredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Porridge : Avoine 45g + Lait écrémé 200ml + Kiwi 100g + Amandes 10g", kcal: 380, p: "16g", g: "54g", l: "10g" },
+              { name: "Déjeuner", food: "Dinde 140g + Riz brun 90g + Carottes 150g + Huile d'olive 5g", kcal: 430, p: "38g", g: "38g", l: "10g" },
+              { name: "Collation", food: "Cottage cheese 150g + Fraises 100g + Noix 10g", kcal: 215, p: "18g", g: "14g", l: "10g" },
+              { name: "Dîner", food: "Steak haché 5% 130g + Épinards 150g + Champignons 100g + Huile d'olive 8g", kcal: 370, p: "34g", g: "10g", l: "20g" },
+            ],
+            total: { kcal: "~1 395", p: "106g", g: "116g", l: "50g" }
+          },
+          {
+            label: "Jeudi", emoji: "🧘", sport: "Pilates + Muscu",
+            meals: [
+              { name: "Petit-déj", food: "Smoothie vert : Lait d'amande 200ml + Skyr 150g + Banane 70g + Épinards 50g", kcal: 330, p: "18g", g: "48g", l: "5g" },
+              { name: "Déjeuner", food: "Poulet 140g + Pâtes complètes cuites 100g + Poivrons 150g + Huile d'olive 5g", kcal: 460, p: "40g", g: "44g", l: "12g" },
+              { name: "Collation", food: "Fromage blanc 200g + Kiwi 100g", kcal: 185, p: "22g", g: "18g", l: "1g" },
+              { name: "Dîner", food: "Filet de lieu 150g + Asperges 200g + Huile d'olive 10g", kcal: 300, p: "32g", g: "8g", l: "14g" },
+            ],
+            total: { kcal: "~1 275", p: "112g", g: "118g", l: "32g" }
+          },
+          {
+            label: "Vendredi", emoji: "🏋️", sport: "Séance TSE",
+            meals: [
+              { name: "Petit-déj", food: "Skyr 200g + Granola 30g + Myrtilles 80g + Graines lin 8g", kcal: 380, p: "22g", g: "52g", l: "8g" },
+              { name: "Déjeuner", food: "Saumon 140g + Lentilles cuites 120g + Épinards 100g + Huile d'olive 5g", kcal: 470, p: "38g", g: "30g", l: "20g" },
+              { name: "Collation", food: "Yaourt grec 150g + Framboises 80g + Amandes 10g", kcal: 230, p: "14g", g: "16g", l: "12g" },
+              { name: "Dîner", food: "Dinde 130g + Quinoa cuit 90g + Courgettes 150g + Huile d'olive 5g", kcal: 390, p: "36g", g: "34g", l: "11g" },
+            ],
+            total: { kcal: "~1 470", p: "110g", g: "132g", l: "51g" }
+          },
+          {
+            label: "Samedi", emoji: "🏃", sport: "Running + Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Pancakes protéinés : Avoine 45g + 2 blancs + Skyr 100g + Fruits rouges 80g", kcal: 350, p: "22g", g: "50g", l: "5g" },
+              { name: "Déjeuner", food: "Repas plaisir (~640 kcal max)", kcal: 640, p: "28g", g: "60g", l: "24g" },
+              { name: "Collation", food: "Skyr 150g + Orange 120g", kcal: 175, p: "18g", g: "20g", l: "1g" },
+              { name: "Dîner", food: "Poulet 130g + Ratatouille 200g + Huile d'olive 5g", kcal: 350, p: "34g", g: "16g", l: "13g" },
+            ],
+            total: { kcal: "~1 515", p: "102g", g: "146g", l: "43g" }
+          },
+          {
+            label: "Dimanche", emoji: "🧘", sport: "Pilates",
+            meals: [
+              { name: "Petit-déj", food: "Fromage blanc 250g + Avoine 35g + Banane 80g + Miel 5g", kcal: 380, p: "26g", g: "54g", l: "3g" },
+              { name: "Déjeuner", food: "🎉 Repas libre (~600 kcal)", kcal: 600, p: "28g", g: "58g", l: "22g" },
+              { name: "Collation", food: "Yaourt protéiné 150g + Kiwi 100g", kcal: 175, p: "18g", g: "18g", l: "2g" },
+              { name: "Dîner", food: "Cabillaud 150g + Courgettes 200g + Riz brun 80g + Huile d'olive 5g", kcal: 380, p: "36g", g: "30g", l: "10g" },
+            ],
+            total: { kcal: "~1 535", p: "108g", g: "160g", l: "37g" }
+          },
+        ]
+      }
+    ]
   }
 ];
 
+// ══════════════════════════════════════════
+// Today data — utilise la phase courante (dynamique sur 3 mois)
+// ══════════════════════════════════════════
+function getCurrentPhaseAndWeek() {
+  // Phase 1 = semaines 1-4, Phase 2 = 5-8, Phase 3 = 9-12
+  // On calcule en fonction de la date par rapport à aujourd'hui
+  // Par défaut on affiche la phase 1 semaine 1
+  return { phaseIdx: 0, weekIdx: 0 };
+}
+
+function dayIndex() { return (new Date().getDay() + 6) % 7; }
+
+function getTodayMeals() {
+  const { phaseIdx, weekIdx } = getCurrentPhaseAndWeek();
+  const dIdx = dayIndex();
+  return PHASES[phaseIdx].weeks[weekIdx].days[dIdx];
+}
+
+// ══════════════════════════════════════════
+// TIPS
+// ══════════════════════════════════════════
 const TIPS = [
-  { icon: "🥩", title: "Protéines en priorité", text: "Vise 130g/jour. Poulet (31g/100g), thon (28g/100g), œufs (13g), yaourt grec (10g)." },
-  { icon: "💧", title: "Hydratation", text: "2L minimum par jour. Commence chaque repas par un grand verre d'eau." },
-  { icon: "⏰", title: "Timing des glucides", text: "Flocons, riz, pâtes le matin et autour des séances. Protéines + légumes le soir." },
-  { icon: "🥥", title: "Alpro coco yaourt", text: "Utilisé en topping sur le porridge ou en collation. Moins protéiné que le grec — compensé dans les autres repas." },
-  { icon: "🍠", title: "Lentilles & Patate douce", text: "Index glycémique bas, riches en fibres. Parfaits le soir pour rassasier sans pic d'insuline." },
-  { icon: "🎉", title: "Dimanche libre", text: "Intégré au programme ! Si tu craques un autre jour, reprends simplement le lendemain." },
+  { icon: "🥩", title: "Protéines en priorité", text: "Vise 120–135g/jour selon la phase. Poulet (31g/100g), saumon (25g), thon (28g), skyr (10g), fromage blanc (7g)." },
+  { icon: "💧", title: "Hydratation", text: "2L minimum par jour. Commence chaque repas par un grand verre d'eau. Herbes, thé vert et eau pétillante sont tes amies." },
+  { icon: "⏰", title: "Timing des glucides", text: "Flocons, riz, pâtes le matin et autour des séances. Protéines + légumes le soir, surtout en phase 3." },
+  { icon: "🍠", title: "Index glycémique bas", text: "Lentilles, patate douce, quinoa, avoine. Index bas = satiété durable, énergie stable, moins de fringales." },
+  { icon: "📉", title: "Progression des phases", text: "Phase 1 : 1 600 kcal, installer les habitudes. Phase 2 : 1 550 kcal, réduire les glucides. Phase 3 : 1 500 kcal, affiner." },
+  { icon: "🎉", title: "Repas plaisir du week-end", text: "Intégré au programme (samedi/dimanche) ! ~640 kcal max. Reprends simplement le lendemain si tu débords." },
+  { icon: "📏", title: "Mesures hebdomadaires", text: "Pèse-toi 1x/semaine le matin à jeun. Prends aussi ton tour de taille — parfois le corps change sans que la balance bouge." },
 ];
 
 // ══════════════════════════════════════════
@@ -458,34 +1335,28 @@ const TIPS = [
 function getKey(date) { return 'day_' + date; }
 function todayStr() { return new Date().toISOString().split('T')[0]; }
 function dayName() { return ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'][new Date().getDay()]; }
-function dayIndex() { return (new Date().getDay() + 6) % 7; } // 0=lundi
 
 function loadDay(date) {
   try { return JSON.parse(localStorage.getItem(getKey(date))) || {}; }
   catch { return {}; }
 }
-function saveDay(date, data) {
-  localStorage.setItem(getKey(date), JSON.stringify(data));
-}
+function saveDay(date, data) { localStorage.setItem(getKey(date), JSON.stringify(data)); }
 function getAllDays() {
   const days = [];
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i);
-    if (k.startsWith('day_')) {
-      try {
-        const d = JSON.parse(localStorage.getItem(k));
-        days.push({ date: k.replace('day_', ''), ...d });
-      } catch {}
+    if (k && k.startsWith('day_')) {
+      try { const d = JSON.parse(localStorage.getItem(k)); days.push({ date: k.replace('day_',''), ...d }); } catch {}
     }
   }
-  return days.sort((a, b) => a.date.localeCompare(b.date));
+  return days.sort((a,b) => a.date.localeCompare(b.date));
 }
 function deleteDay(date) { localStorage.removeItem(getKey(date)); }
 function clearAll() {
   if (!confirm('Effacer toutes les données ? Cette action est irréversible.')) return;
   const keys = [];
   for (let i = 0; i < localStorage.length; i++) {
-    if (localStorage.key(i).startsWith('day_')) keys.push(localStorage.key(i));
+    if (localStorage.key(i) && localStorage.key(i).startsWith('day_')) keys.push(localStorage.key(i));
   }
   keys.forEach(k => localStorage.removeItem(k));
   toast('Données effacées');
@@ -501,14 +1372,13 @@ function showPage(name) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
-  const tabs = document.querySelectorAll('.tab');
-  const navs = document.querySelectorAll('.nav-item');
   const order = ['today','courbe','programme','historique'];
   const idx = order.indexOf(name);
-  if (tabs[idx]) tabs[idx].classList.add('active');
-  if (navs[idx]) navs[idx].classList.add('active');
+  document.querySelectorAll('.tab')[idx]?.classList.add('active');
+  document.querySelectorAll('.nav-item')[idx]?.classList.add('active');
   if (name === 'courbe') renderCourbe();
   if (name === 'historique') renderHistorique();
+  if (name === 'programme') renderProgramme();
 }
 
 // ══════════════════════════════════════════
@@ -517,22 +1387,20 @@ function showPage(name) {
 function renderToday() {
   const today = todayStr();
   const dIdx = dayIndex();
-  const dayData = DAYS_DATA[dIdx];
+  const dayData = getTodayMeals();
+  const sportData = SPORT_DAYS[dIdx];
   const saved = loadDay(today);
-
   const container = document.getElementById('day-cards');
   container.innerHTML = '';
 
-  // Date banner
   const banner = document.createElement('div');
   banner.style.cssText = 'background:linear-gradient(135deg,var(--g1),var(--g3));border-radius:14px;padding:18px 20px;margin-bottom:18px;color:white;';
   const dateStr = new Date().toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' });
   banner.innerHTML = `<div style="font-size:0.75rem;opacity:0.75;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Aujourd'hui</div>
     <div style="font-family:'DM Serif Display',serif;font-size:1.3rem">${dateStr.charAt(0).toUpperCase()+dateStr.slice(1)}</div>
-    <div style="margin-top:8px;background:rgba(255,255,255,0.15);border-radius:20px;display:inline-block;padding:4px 14px;font-size:0.78rem;font-weight:600">${dayData.emoji} ${dayData.sport}</div>`;
+    <div style="margin-top:8px;background:rgba(255,255,255,0.15);border-radius:20px;display:inline-block;padding:4px 14px;font-size:0.78rem;font-weight:600">${sportData.emoji} ${sportData.sport}</div>`;
   container.appendChild(banner);
 
-  // Check-in card
   const checkin = document.createElement('div');
   checkin.className = 'card';
   checkin.innerHTML = `
@@ -547,7 +1415,7 @@ function renderToday() {
         </div>
       </div>
       <div class="checks-grid">
-        ${['💧 2L d\'eau','👟 10 000 pas',`${dayData.emoji} ${dayData.sport}`,'🍷 Sans alcool','🚭 Sans clope élec'].map((label,i) => `
+        ${['💧 2L d\'eau','👟 10 000 pas',`${sportData.emoji} ${sportData.sport}`,'🍷 Sans alcool','🚭 Sans clope élec'].map((label,i) => `
           <div class="check-item ${saved.checks && saved.checks[i] ? 'checked':''}" onclick="toggleCheck(this,${i})">
             <div class="check-box">${saved.checks && saved.checks[i] ? '✓':''}</div>
             <span class="check-label">${label}</span>
@@ -557,7 +1425,6 @@ function renderToday() {
     </div>`;
   container.appendChild(checkin);
 
-  // Meals card
   const meals = document.createElement('div');
   meals.className = 'card';
   meals.innerHTML = `
@@ -586,14 +1453,12 @@ let currentChecks = [false,false,false,false,false];
 function toggleCheck(el, idx) {
   el.classList.toggle('checked');
   const box = el.querySelector('.check-box');
-  const isChecked = el.classList.contains('checked');
-  box.textContent = isChecked ? '✓' : '';
-  currentChecks[idx] = isChecked;
+  box.textContent = el.classList.contains('checked') ? '✓' : '';
+  currentChecks[idx] = el.classList.contains('checked');
 }
 
 function saveToday() {
   const today = todayStr();
-  const saved = loadDay(today);
   const weightVal = document.getElementById('weight-input').value;
   const checks = Array.from(document.querySelectorAll('.check-item')).map(el => el.classList.contains('checked'));
   saveDay(today, { weight: weightVal ? parseFloat(weightVal) : null, checks, date: today });
@@ -603,13 +1468,9 @@ function saveToday() {
 // ══════════════════════════════════════════
 // COURBE PAGE
 // ══════════════════════════════════════════
-let chartWeight = null;
-let chartChecks = null;
-
+let chartWeight = null, chartChecks = null;
 function renderCourbe() {
   const days = getAllDays().filter(d => d.weight);
-
-  // Stats
   if (days.length > 0) {
     const first = days[0].weight;
     const last = days[days.length-1].weight;
@@ -631,44 +1492,14 @@ function renderCourbe() {
   } else {
     container.innerHTML = '<canvas id="weight-chart"></canvas>';
     if (chartWeight) chartWeight.destroy();
-    const labels = days.map(d => {
-      const dt = new Date(d.date);
-      return dt.toLocaleDateString('fr-FR', { day:'numeric', month:'short' });
-    });
-    const weights = days.map(d => d.weight);
-    const ctx = document.getElementById('weight-chart').getContext('2d');
-    chartWeight = new Chart(ctx, {
+    const labels = days.map(d => { const dt = new Date(d.date); return dt.toLocaleDateString('fr-FR', { day:'numeric', month:'short' }); });
+    chartWeight = new Chart(document.getElementById('weight-chart').getContext('2d'), {
       type: 'line',
-      data: {
-        labels,
-        datasets: [{
-          label: 'Poids (kg)',
-          data: weights,
-          borderColor: '#40916C',
-          backgroundColor: 'rgba(64,145,108,0.1)',
-          borderWidth: 2.5,
-          pointBackgroundColor: '#1B4332',
-          pointRadius: 5,
-          tension: 0.3,
-          fill: true,
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: {
-            beginAtZero: false,
-            grid: { color: '#f0f0ee' },
-            ticks: { callback: v => v + ' kg', font: { family: 'DM Sans' } }
-          },
-          x: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } }
-        }
-      }
+      data: { labels, datasets: [{ label: 'Poids (kg)', data: days.map(d => d.weight), borderColor: '#40916C', backgroundColor: 'rgba(64,145,108,0.1)', borderWidth: 2.5, pointBackgroundColor: '#1B4332', pointRadius: 5, tension: 0.3, fill: true }] },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, grid: { color: '#f0f0ee' }, ticks: { callback: v => v + ' kg', font: { family: 'DM Sans' } } }, x: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } } } }
     });
   }
 
-  // Checks adherence
   const allDays = getAllDays();
   const checksContainer = document.getElementById('chart-checks');
   if (allDays.length < 2) {
@@ -676,34 +1507,13 @@ function renderCourbe() {
   } else {
     checksContainer.innerHTML = '<canvas id="checks-chart"></canvas>';
     if (chartChecks) chartChecks.destroy();
-    const checkLabels = allDays.slice(-14).map(d => {
-      const dt = new Date(d.date);
-      return dt.toLocaleDateString('fr-FR', { day:'numeric', month:'short' });
-    });
-    const checkScores = allDays.slice(-14).map(d => {
-      if (!d.checks) return 0;
-      return Math.round((d.checks.filter(Boolean).length / 5) * 100);
-    });
-    const ctx2 = document.getElementById('checks-chart').getContext('2d');
-    chartChecks = new Chart(ctx2, {
+    const recent = allDays.slice(-14);
+    const checkLabels = recent.map(d => { const dt = new Date(d.date); return dt.toLocaleDateString('fr-FR', { day:'numeric', month:'short' }); });
+    const checkScores = recent.map(d => d.checks ? Math.round((d.checks.filter(Boolean).length / 5) * 100) : 0);
+    chartChecks = new Chart(document.getElementById('checks-chart').getContext('2d'), {
       type: 'bar',
-      data: {
-        labels: checkLabels,
-        datasets: [{
-          label: 'Score (%)',
-          data: checkScores,
-          backgroundColor: checkScores.map(s => s >= 80 ? 'rgba(64,145,108,0.8)' : s >= 60 ? 'rgba(116,198,157,0.8)' : 'rgba(216,243,220,0.9)'),
-          borderRadius: 6,
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { max: 100, grid: { color: '#f0f0ee' }, ticks: { callback: v => v + '%', font: { family: 'DM Sans' } } },
-          x: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } }
-        }
-      }
+      data: { labels: checkLabels, datasets: [{ label: 'Score (%)', data: checkScores, backgroundColor: checkScores.map(s => s >= 80 ? 'rgba(64,145,108,0.8)' : s >= 60 ? 'rgba(116,198,157,0.8)' : 'rgba(216,243,220,0.9)'), borderRadius: 6 }] },
+      options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { max: 100, grid: { color: '#f0f0ee' }, ticks: { callback: v => v + '%', font: { family: 'DM Sans' } } }, x: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } } } }
     });
   }
 }
@@ -711,23 +1521,125 @@ function renderCourbe() {
 // ══════════════════════════════════════════
 // PROGRAMME PAGE
 // ══════════════════════════════════════════
+let selectedPhase = 0, selectedWeek = 0, selectedDay = 0;
+
 function renderProgramme() {
-  // Sport planning
-  const sp = document.getElementById('sport-planning');
-  sp.innerHTML = DAYS_DATA.map(d => `
+  // Objectifs macro dynamiques
+  const ph = PHASES[selectedPhase];
+  document.getElementById('macro-display').innerHTML = `
+    <div class="macro-grid">
+      <div class="macro-card"><div class="v">${ph.macro.kcal}</div><div class="l">kcal/jour</div></div>
+      <div class="macro-card"><div class="v">${ph.macro.p}</div><div class="l">Protéines</div></div>
+      <div class="macro-card"><div class="v">${ph.macro.g}</div><div class="l">Glucides</div></div>
+      <div class="macro-card"><div class="v">${ph.macro.l}</div><div class="l">Lipides</div></div>
+    </div>`;
+  document.getElementById('macro-info').innerHTML = `<div class="info-box">💡 ${ph.info}</div>`;
+
+  // Sport
+  document.getElementById('sport-planning').innerHTML = SPORT_DAYS.map(d => `
     <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:white;border-radius:10px;margin-bottom:8px;box-shadow:var(--sh)">
       <span style="font-size:1.1rem">${d.emoji}</span>
       <span style="font-weight:600;color:var(--g1);width:80px">${d.day}</span>
       <span style="color:var(--muted);font-size:0.87rem">${d.sport}</span>
     </div>`).join('');
 
+  // Phase selector
+  document.getElementById('phase-selector').innerHTML = PHASES.map((p,i) => `
+    <button class="phase-btn ${i===selectedPhase?'active':''}" onclick="selectPhase(${i})">${p.months}</button>`).join('');
+
+  renderPhaseInfo();
+  renderWeekSelector();
+  renderDaySelector();
+  renderMenu();
+
   // Tips
-  const tl = document.getElementById('tips-list');
-  tl.innerHTML = TIPS.map(t => `
+  document.getElementById('tips-list').innerHTML = TIPS.map(t => `
     <div style="background:white;border-radius:12px;padding:16px 18px;margin-bottom:10px;box-shadow:var(--sh)">
       <div style="font-weight:600;font-size:0.9rem;color:var(--g1);margin-bottom:5px">${t.icon} ${t.title}</div>
       <div style="font-size:0.83rem;color:var(--muted)">${t.text}</div>
     </div>`).join('');
+}
+
+function renderPhaseInfo() {
+  const ph = PHASES[selectedPhase];
+  document.getElementById('phase-info-box').innerHTML = `
+    <div class="phase-title">${ph.label} · ${ph.kcal} kcal/jour</div>
+    <div class="phase-desc">${ph.desc}</div>`;
+}
+
+function renderWeekSelector() {
+  const ph = PHASES[selectedPhase];
+  document.getElementById('week-selector').innerHTML = ph.weeks.map((w,i) => `
+    <button class="week-btn ${i===selectedWeek?'active':''}" onclick="selectWeek(${i})">${w.label}</button>`).join('');
+}
+
+function renderDaySelector() {
+  const days = PHASES[selectedPhase].weeks[selectedWeek].days;
+  document.getElementById('day-selector').innerHTML = days.map((d,i) => `
+    <button class="day-btn ${i===selectedDay?'active':''}" onclick="selectDay(${i})">${d.label.substring(0,3)}<br><span style="font-size:0.7rem">${d.emoji}</span></button>`).join('');
+}
+
+function renderMenu() {
+  const dayData = PHASES[selectedPhase].weeks[selectedWeek].days[selectedDay];
+  document.getElementById('menu-display').innerHTML = `
+    <div class="card">
+      <div class="card-header">
+        <h2>🥗 ${dayData.label} ${dayData.emoji}</h2>
+        <span class="sport-pill">${dayData.total.kcal} kcal</span>
+      </div>
+      <div class="card-body" style="padding:0">
+        <div style="overflow-x:auto">
+          <table class="meal-table">
+            <thead><tr><th>Repas</th><th>Aliments</th><th>Kcal</th><th>Prot</th><th>Gluc</th><th>Lip</th></tr></thead>
+            <tbody>
+              ${dayData.meals.map(m => `<tr>
+                <td>${m.name}</td><td>${m.food}</td>
+                <td class="num">${m.kcal}</td><td class="num">${m.p}</td><td class="num">${m.g}</td><td class="num">${m.l}</td>
+              </tr>`).join('')}
+              <tr class="total">
+                <td>Total</td><td></td>
+                <td class="num">${dayData.total.kcal}</td><td class="num">${dayData.total.p}</td><td class="num">${dayData.total.g}</td><td class="num">${dayData.total.l}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>`;
+}
+
+function selectPhase(i) {
+  selectedPhase = i;
+  selectedWeek = 0;
+  selectedDay = 0;
+  document.querySelectorAll('.phase-btn').forEach((b,idx) => b.classList.toggle('active', idx===i));
+  document.getElementById('macro-display').innerHTML = (() => {
+    const ph = PHASES[i];
+    return `<div class="macro-grid">
+      <div class="macro-card"><div class="v">${ph.macro.kcal}</div><div class="l">kcal/jour</div></div>
+      <div class="macro-card"><div class="v">${ph.macro.p}</div><div class="l">Protéines</div></div>
+      <div class="macro-card"><div class="v">${ph.macro.g}</div><div class="l">Glucides</div></div>
+      <div class="macro-card"><div class="v">${ph.macro.l}</div><div class="l">Lipides</div></div>
+    </div>`;
+  })();
+  document.getElementById('macro-info').innerHTML = `<div class="info-box">💡 ${PHASES[i].info}</div>`;
+  renderPhaseInfo();
+  renderWeekSelector();
+  renderDaySelector();
+  renderMenu();
+}
+
+function selectWeek(i) {
+  selectedWeek = i;
+  selectedDay = 0;
+  document.querySelectorAll('.week-btn').forEach((b,idx) => b.classList.toggle('active', idx===i));
+  renderDaySelector();
+  renderMenu();
+}
+
+function selectDay(i) {
+  selectedDay = i;
+  document.querySelectorAll('.day-btn').forEach((b,idx) => b.classList.toggle('active', idx===i));
+  renderMenu();
 }
 
 // ══════════════════════════════════════════
@@ -782,93 +1694,5 @@ function toast(msg) {
 renderToday();
 renderProgramme();
 </script>
-
-<!-- ====== AMÉLIORATIONS AJOUTÉES ====== -->
-<script>
-// 🎯 Objectif personnalisable
-const OBJECTIVE_WEIGHT = 62;
-
-// 📉 Moyenne mobile
-function movingAverage(data, period = 7) {
-  return data.map((_, i, arr) => {
-    const start = Math.max(0, i - (period - 1));
-    const subset = arr.slice(start, i + 1);
-    return subset.reduce((a,b)=>a+b,0)/subset.length;
-  });
-}
-
-// 🔥 Streak simple basé sur jours enregistrés
-function calculateStreak(days){
-  let streak = 0;
-  const reversed = [...days].reverse();
-  for(let d of reversed){
-    if(d.weight) streak++;
-    else break;
-  }
-  return streak;
-}
-
-// 📈 Patch automatique de la courbe si Chart existe déjà
-document.addEventListener("DOMContentLoaded", function(){
-
-  if(typeof renderCourbe === "function"){
-
-    const originalRender = renderCourbe;
-
-    renderCourbe = function(){
-
-      originalRender();
-
-      if(typeof getAllDays !== "function") return;
-
-      const days = getAllDays().filter(d => d.weight);
-      if(days.length < 2) return;
-
-      const weights = days.map(d=>d.weight);
-      const avg7 = movingAverage(weights);
-
-      if(window.chartWeight){
-        window.chartWeight.data.datasets.push({
-          label:"Moyenne 7j",
-          data:avg7,
-          borderDash:[6,4],
-          fill:false
-        });
-
-        window.chartWeight.data.datasets.push({
-          label:"Objectif",
-          data:new Array(weights.length).fill(OBJECTIVE_WEIGHT),
-          fill:false
-        });
-
-        window.chartWeight.update();
-      }
-
-      const statsRow = document.getElementById("stats-row");
-      if(statsRow){
-        const streak = calculateStreak(days);
-        const div = document.createElement("div");
-        div.className="stat-card";
-        div.innerHTML="<div class='val'>🔥 "+streak+"</div><div class='lbl'>Streak</div>";
-        statsRow.appendChild(div);
-      }
-    }
-  }
-
-  // ⚡ Auto-save poids
-  const weightInput = document.getElementById("weight-input");
-  if(weightInput){
-    let timeout;
-    weightInput.addEventListener("input", function(){
-      clearTimeout(timeout);
-      timeout = setTimeout(()=>{
-        if(typeof saveToday === "function") saveToday();
-      },1000);
-    });
-  }
-
-});
-</script>
-
 </body>
 </html>
